@@ -12,6 +12,7 @@ class Employe
     float salaire;
     QDate date_nais;
 
+
 public:
     Employe();
     Employe(QString,QString,QString,QString,QString,QString,int,float,QString,QDate);
