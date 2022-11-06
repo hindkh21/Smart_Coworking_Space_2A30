@@ -12,7 +12,6 @@ class Employe
     float salaire;
     QDate date_nais;
 
-
 public:
     Employe();
     Employe(QString,QString,QString,QString,QString,QString,int,float,QString,QDate);
@@ -29,12 +28,12 @@ public:
     void setPrenom(QString p){prenom_emp=p;}
 
 
-
     //CRUD
     bool ajouter();
     QSqlQueryModel * afficher();
     bool supprimer(QString);
     bool modifier();
+
 
     QSqlQuery select(QString);
     QSqlQueryModel * recherche(QString);

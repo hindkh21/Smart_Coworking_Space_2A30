@@ -1,10 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "employe.h"
+#include "todolist.h"
 #include<QMessageBox>
 #include <QDate>
 #include<QComboBox>
 #include<QRegExp>
+#include<QTextEdit>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,8 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->le_cin->setValidator(new QIntValidator(0,99999999, this));
-    ui->tab_emp->setModel(Etmp.afficher());
-
+    ui->tab_emp->setModel(Etmp.afficher());   
 }
 
 MainWindow::~MainWindow()
@@ -245,19 +246,6 @@ void MainWindow::on_tab_emp_activated(const QModelIndex &index)
        }
 }
 
-void MainWindow::on_pb_recherche_clicked()
-{
-    QString rech=ui->le_recherche->text();
-    if(rech!="")
-    {
-        QSqlQueryModel *tab_emp=Etmp.recherche(rech);
-        if (tab_emp!=nullptr)
-        {
-            ui->tab_emp->setModel(tab_emp);
-        }
-    }
-}
-
 void MainWindow::on_pb_refresh_clicked()
 {
     ui->tab_emp->setModel(Etmp.afficher());
@@ -273,6 +261,140 @@ void MainWindow::on_pb_refresh_clicked()
     ui->le_recherche->setText("");
 
 }
+
+void MainWindow::on_pb_recherche_clicked()
+{
+    QString rech=ui->le_recherche->text();
+    if(rech!="")
+    {
+        QSqlQueryModel *tab_emp=Etmp.recherche(rech);
+        if (tab_emp!=nullptr)
+        {
+            ui->tab_emp->setModel(tab_emp);
+        }
+    }
+}
+
+
+/********************************************************ToDoList*********************************************************************/
+
+void MainWindow::on_pb_afficherTache_clicked()
+{
+    QString id=ui->le_id_2->text();
+    if(id!="")
+    {
+        QSqlQueryModel *tab_tache=Tmp.afficher(id);
+        if (tab_tache!=nullptr)
+        {
+            ui->tab_tache->setModel(tab_tache);
+        }
+    }
+}
+
+void MainWindow::on_pb_ajoutTache_clicked()
+{
+    bool valide=true;
+
+    //Recuperation des donnees
+    QString id=ui->le_id_2->text();
+    QString task=ui->des_tache->text();
+    QString etat="A FAIRE";                 //PAR DEFAULT A FAIRE
+
+    if(valide)
+    {
+    ToDoList T(id,task,etat);
+    bool test=T.ajouter();
+
+    if(test)
+    {
+        //REFRECH
+        ui->tab_tache->setModel(Tmp.afficher(id));
+
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+                    QObject::tr("Ajout effectué\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    else
+        QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+                    QObject::tr("Ajout NON effectué\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_tab_tache_activated(const QModelIndex &index)
+{
+    QString val=ui->tab_tache->model()->data(index).toString();
+    QSqlQuery qry;
+
+    qry=Tmp.select(val);
+
+    if(qry.exec())
+    {
+        while (qry.next())
+        {
+            ui->le_idTache->setText(qry.value(0).toString());
+            ui->des_tache->setText(qry.value(2).toString());
+        }
+    }
+}
+
+void MainWindow::on_pb_suppTache_clicked()
+{
+    QString id_tache=ui->le_idTache->text();
+    QString id=ui->le_id_2->text();
+
+    bool test=Tmp.supprimer(id_tache);
+
+    if(test)
+    {
+        //REFRECH
+        ui->tab_tache->setModel(Tmp.afficher(id));
+
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+                    QObject::tr("DELETE effectué\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    else
+        QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+                    QObject::tr("DELETE NON effectué\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_pb_modifTache_clicked()
+{
+    bool valide=true;
+
+    //Recuperation des donnees
+    int id=ui->le_idTache->text().toInt();
+    QString id_emp=ui->le_id_2->text();
+    QString task=ui->des_tache->text();
+    QString etat=ui->etat_tache->currentText();
+
+    if(valide)
+    {
+        ToDoList T(id_emp,task,etat);
+
+        bool test=T.modifier(id);
+        if(test)
+        {
+            //REFRECH
+            ui->tab_tache->setModel(Tmp.afficher(id_emp));
+
+            QMessageBox::information(nullptr, QObject::tr("OK"),
+                        QObject::tr("EDIT effectué\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+        }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+                        QObject::tr("EDIT NON effectué\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+
+        }
+}
+
+
+
 
 /*
 void MainWindow::on_tri_mar_clicked()
@@ -292,3 +414,5 @@ void MainWindow::on_tri_mar_clicked()
 }
 
   */
+
+

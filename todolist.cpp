@@ -3,66 +3,80 @@
 #include<QtDebug>
 #include<QObject>
 #include<QMessageBox>
+#include<QSqlQueryModel>
 
 ToDoList::ToDoList()
 {
 
 }
-/*
+
+ToDoList::ToDoList(QString id_emp, QString task, QString etat)
+{
+    this->id_emp=id_emp;
+    this->task=task;
+    this->etat=etat;
+}
+
 bool ToDoList::ajouter()
 {
     QSqlQuery query;
 
-    query.prepare("insert into taches (task, etat, id_emp, id_tache)" "values (:task , :etat ,:id_emp , :id_tache)");
+    query.prepare("insert into taches (task, etat, id_emp)" "values (:task , :etat ,:id_emp)");
 
     query.bindValue(":task",task);
     query.bindValue(":etat",etat);
     query.bindValue(":id_emp",id_emp);
-    query.bindValue(":id_tache",id_tache);
 
     return query.exec();
-}*/
+}
 
-/*
-QSqlQueryModel * ToDoList::afficher()
+
+QSqlQueryModel * ToDoList::afficher(QString id)
 {
-    QSqlQueryModel * model=new QSqlQueryModel();
+    QSqlQuery *qry= new QSqlQuery();
+    qry->prepare("select * from taches where id_emp=:id_emp");
+    qry->bindValue(":id_emp",id);
+    qry->exec();
 
-    model->setQuery("select * from employe e, taches t where e.id_emp=t.id_emp and e.id_emp:=id_emp ");
-    /////
-
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("TACHES"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("ETAT"));
+    QSqlQueryModel *model = new QSqlQueryModel();
+    model->setQuery(*qry);
 
     return model;
 }
 
-*/
+QSqlQuery ToDoList::select(QString val)
+{
+    QSqlQuery qry;
+    qry.prepare("select * from taches where id_tache=?");
+    qry.addBindValue(val);
 
-/*
-bool ToDoList::supprimer(QString id_emp)
+    return qry;
+}
+
+bool ToDoList::supprimer(QString id_tache)
 {
     QSqlQuery query;
 
-    query.prepare("Delete from taches where id_emp= :id_emp");
-    query.bindValue(":id_emp",id_emp);
-
+    query.prepare("Delete from taches where id_tache= :id_tache");
+    query.bindValue(":id_tache",id_tache);
     return query.exec();
 }
 
-bool Employe::modifier()
+bool ToDoList::modifier(int id_tache)
 {
     QSqlQuery query;
+    QString id=QString::number(id_tache);
 
-    query.prepare("update taches set task:=task, etat:=etat" );
+    query.prepare("update taches set task= :task, etat= :etat where id_tache= :id_tache" );
 
-    query.bindValue(":id_emp",id_emp);
-    query.bindValue(":nom_emp",nom_emp);
+    query.bindValue(":id_tache",id);
+    query.bindValue(":etat",etat);
+    query.bindValue(":task",task);
 
     return  query.exec();
 }
 
-  */
+
 
 /*
   select * from employe e, taches t where e.id_emp=t.id_emp and e.id_emp='154ADF'

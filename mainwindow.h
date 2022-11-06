@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include "employe.h"
+#include "todolist.h"
 
 namespace Ui {
 class MainWindow;
@@ -28,9 +29,20 @@ private slots:
 
     void on_pb_refresh_clicked();
 
+    void on_pb_ajoutTache_clicked();
+
+    void on_pb_afficherTache_clicked();
+
+    void on_tab_tache_activated(const QModelIndex &index);
+
+    void on_pb_suppTache_clicked();
+
+    void on_pb_modifTache_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employe Etmp;
+    ToDoList Tmp;
 };
 
 #endif // MAINWINDOW_H
