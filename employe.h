@@ -38,6 +38,11 @@ public:
     QSqlQuery select(QString);
     QSqlQueryModel * recherche(QString);
 
+    //TRIER
+    QSqlQueryModel * trier_nom();
+    QSqlQueryModel * trier_prenom();
+    QSqlQueryModel * trier_salaire();
+
 };
 
 #endif // EMPLOYE_H

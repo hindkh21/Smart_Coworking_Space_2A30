@@ -39,6 +39,8 @@ private slots:
 
     void on_pb_modifTache_clicked();
 
+    void on_pb_trierNom_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employe Etmp;

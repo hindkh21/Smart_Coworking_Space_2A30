@@ -113,7 +113,7 @@ void MainWindow::on_pb_ajouter_clicked()
 
 void MainWindow::on_pb_supprimer_clicked()
 {
-    QString id_emp=ui->le_supp->text();
+    QString id_emp=ui->le_id->text();
     bool test=Etmp.supprimer(id_emp);
 
     if(test)
@@ -232,7 +232,6 @@ void MainWindow::on_tab_emp_activated(const QModelIndex &index)
            while (qry.next())
            {
                ui->le_id->setText(qry.value(0).toString());
-               ui->le_supp->setText(qry.value(0).toString());
                ui->le_nom->setText(qry.value(1).toString());
                ui->le_prenom->setText(qry.value(2).toString());
                ui->le_cin->setText(qry.value(3).toString());
@@ -244,22 +243,6 @@ void MainWindow::on_tab_emp_activated(const QModelIndex &index)
                ui->dateEdit->setDate(qry.value(9).toDate());
            }
        }
-}
-
-void MainWindow::on_pb_refresh_clicked()
-{
-    ui->tab_emp->setModel(Etmp.afficher());
-    ui->le_id->setText("");
-    ui->le_nom->setText("");
-    ui->le_prenom->setText("");
-    ui->le_salaire->setText("");
-    ui->le_cin->setText("");
-    ui->le_email->setText("");
-    ui->le_login->setText("");
-    ui->le_pwd->setText("");
-    ui->le_supp->setText("");
-    ui->le_recherche->setText("");
-
 }
 
 void MainWindow::on_pb_recherche_clicked()
@@ -276,6 +259,35 @@ void MainWindow::on_pb_recherche_clicked()
 }
 
 
+void MainWindow::on_pb_trierNom_clicked()
+{
+    QString critere=ui->cb_trie->currentText();
+    if (critere=="nom")
+        ui->tab_emp->setModel(Etmp.trier_nom());
+    else
+    {
+        if (critere=="prenom")
+        ui->tab_emp->setModel(Etmp.trier_prenom());
+        else
+            ui->tab_emp->setModel(Etmp.trier_salaire());
+    }
+}
+
+
+void MainWindow::on_pb_refresh_clicked()
+{
+    ui->tab_emp->setModel(Etmp.afficher());
+    ui->le_id->setText("");
+    ui->le_nom->setText("");
+    ui->le_prenom->setText("");
+    ui->le_salaire->setText("");
+    ui->le_cin->setText("");
+    ui->le_email->setText("");
+    ui->le_login->setText("");
+    ui->le_pwd->setText("");
+    ui->le_recherche->setText("");
+
+}
 /********************************************************ToDoList*********************************************************************/
 
 void MainWindow::on_pb_afficherTache_clicked()
@@ -392,27 +404,3 @@ void MainWindow::on_pb_modifTache_clicked()
 
         }
 }
-
-
-
-
-/*
-void MainWindow::on_tri_mar_clicked()
-{
-    offre o;
-       //QString critere=ui->cb_historique->currentText();
-           QString mode;
-            if (ui->rb_asc_historique_mar->isChecked()==true)
-       {
-                ui->tableView_mar->setModel(o.trie());
-
-
-       }
-            else if(ui->rb_desc_historique_mar->isChecked()==true)
-
-                ui->tableView_mar->setModel(o.trie2());
-}
-
-  */
-
-
