@@ -34,7 +34,7 @@ bool ToDoList::ajouter()
 QSqlQueryModel * ToDoList::afficher(QString id)
 {
     QSqlQuery *qry= new QSqlQuery();
-    qry->prepare("select * from taches where id_emp=:id_emp");
+    qry->prepare("select id_tache, task, etat from taches where id_emp=:id_emp");
     qry->bindValue(":id_emp",id);
     qry->exec();
 
@@ -75,6 +75,26 @@ bool ToDoList::modifier(int id_tache)
 
     return  query.exec();
 }
+
+//int total=queryt.value(0).toInt();
+
+int ToDoList::nbr_tache(QString etat)
+{
+QSqlQuery query;
+     query.prepare("SELECT * FROM TACHES where etat= :etat");
+     query.bindValue(":etat", etat);
+     query.exec();
+
+     int total = 0;
+      while (query.next())
+      {
+          total++;
+      }
+
+     return total;
+}
+
+
 
 
 

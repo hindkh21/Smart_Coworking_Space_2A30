@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
+
 #include "employe.h"
 #include "todolist.h"
 
@@ -40,6 +41,8 @@ private slots:
     void on_pb_modifTache_clicked();
 
     void on_pb_trierNom_clicked();
+
+    void on_pb_stat_clicked();
 
 private:
     Ui::MainWindow *ui;

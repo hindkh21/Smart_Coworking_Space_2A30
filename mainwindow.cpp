@@ -2,11 +2,13 @@
 #include "ui_mainwindow.h"
 #include "employe.h"
 #include "todolist.h"
+#include "statistiques.h"
 #include<QMessageBox>
 #include <QDate>
 #include<QComboBox>
 #include<QRegExp>
 #include<QTextEdit>
+#include<QtCharts>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->le_cin->setValidator(new QIntValidator(0,99999999, this));
     ui->tab_emp->setModel(Etmp.afficher());   
+
+
 }
 
 MainWindow::~MainWindow()
@@ -299,6 +303,7 @@ void MainWindow::on_pb_afficherTache_clicked()
         if (tab_tache!=nullptr)
         {
             ui->tab_tache->setModel(tab_tache);
+           // ui->tab_tache->setColumnHidden(0, true);
         }
     }
 }
@@ -345,7 +350,7 @@ void MainWindow::on_tab_tache_activated(const QModelIndex &index)
         while (qry.next())
         {
             ui->le_idTache->setText(qry.value(0).toString());
-            ui->des_tache->setText(qry.value(2).toString());
+            ui->des_tache->setText(qry.value(1).toString());
         }
     }
 }
@@ -401,6 +406,22 @@ void MainWindow::on_pb_modifTache_clicked()
                         QObject::tr("EDIT NON effectué\n"
                                     "Click Cancel to exit."), QMessageBox::Cancel);
 
-
         }
+}
+
+
+void MainWindow::on_pb_stat_clicked()
+{
+
+    int res;
+    statistiques w(this);
+    w.setWindowTitle("Statistiques");
+    res = w.exec();
+    qDebug() << res;
+    if (res == QDialog::Rejected)
+      return;
+
+
+
+
 }

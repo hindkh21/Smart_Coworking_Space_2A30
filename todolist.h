@@ -19,6 +19,8 @@ public:
 
 
     QSqlQuery select(QString);
+
+    int nbr_tache(QString);
 };
 
 #endif // TODOLIST_H

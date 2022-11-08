@@ -1,4 +1,9 @@
 QT       += core gui sql
+QT       += network
+QT       += printsupport
+QT       += charts
+QT       +=multimedia
+QT       +=serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,16 +25,19 @@ SOURCES += \
     employe.cpp \
     main.cpp \
     mainwindow.cpp \
+    statistiques.cpp \
     todolist.cpp
 
 HEADERS += \
     connection.h \
     employe.h \
     mainwindow.h \
+    statistiques.h \
     todolist.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    statistiques.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
