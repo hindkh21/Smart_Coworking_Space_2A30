@@ -16,9 +16,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->le_cin->setValidator(new QIntValidator(0,99999999, this));
-    ui->tab_emp->setModel(Etmp.afficher());   
+    ui->tab_emp->setModel(Etmp.afficher());
 
-
+    //ui->pb_ajouter->hide();
+    //ui->pb_ajouter->show();
 }
 
 MainWindow::~MainWindow()
@@ -30,6 +31,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pb_ajouter_clicked()
 {
     bool valide=true;
+
 
     //Recuperation des donnees
     QString id=ui->le_id->text();
