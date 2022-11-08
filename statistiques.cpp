@@ -18,10 +18,10 @@ statistiques::statistiques(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::statistiques)
 {
-    //ui->setupUi(this);
+
     QBarSet *set0 = new QBarSet("A FAIRE");
-              QBarSet *set1 = new QBarSet("EN COURS");
-              QBarSet *set2 = new QBarSet("FAIT");
+    QBarSet *set1 = new QBarSet("EN COURS");
+    QBarSet *set2 = new QBarSet("FAIT");
 
 
               *set0 <<  Tmp.nbr_tache("A FAIRE")<< 0 << 0;
