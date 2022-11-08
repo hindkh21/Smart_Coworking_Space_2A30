@@ -466,6 +466,19 @@ color:rgb(170, 85, 255);
         <string>Modifier</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_8">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>90</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>autoFill</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
@@ -659,8 +672,8 @@ background-color:transparent;
      <widget class="QFrame" name="frame">
       <property name="geometry">
        <rect>
-        <x>979</x>
-        <y>410</y>
+        <x>970</x>
+        <y>400</y>
         <width>471</width>
         <height>300</height>
        </rect>

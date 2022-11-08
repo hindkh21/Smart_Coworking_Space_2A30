@@ -34,6 +34,7 @@ public:
     bool supprimer(QString nom);
     bool modifier(int);
      QSqlQueryModel *recherche(QString nom,QString prenom,QString type);
+     void getDatabaseValue(int id);
 
 
 

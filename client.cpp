@@ -53,8 +53,8 @@ QSqlQueryModel * Client::afficher()
 QSqlQueryModel * Client::afficher1()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
-model->setQuery("SELECT * FROM CLIENT ORDER BY TYPE");
-model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_CLIENT"));
+    model->setQuery("SELECT * FROM CLIENT ORDER BY TYPE");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_CLIENT"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("PRENOM_CL"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("NOM_CL"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("EMAIL_CL"));
@@ -131,6 +131,21 @@ bool Client::modifier(int id )
      return size;
 
  }
+
+void Client::getDatabaseValue(int id)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * FROM CLIENT WHERE ID_CLIENT = '"+QString::number(id)+"'");
+    query.exec();
+    query.next();
+    this->id = query.value(0).toInt();
+    prenom = query.value(1).toString();
+    nom = query.value(2).toString();
+    email = query.value(3).toString();
+    num_tel=query.value(4).toInt();
+    type=query.value(5).toString();
+
+}
 
 
 

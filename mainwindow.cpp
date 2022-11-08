@@ -1,4 +1,3 @@
-#define SECURITY_WIN32
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "client.h"
@@ -14,14 +13,8 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QSaveFile>
-#include<iostream>
-#include<sstream>
-#include<windows.h>
-#include<wininet.h>
-#include<winineti.h>
-  #include "windows.h"
-using namespace std;
 #include "smtp.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -35,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit_numtel->setValidator(new QIntValidator(0,99999999,this));
     ui->lineEdit_prenom->setInputMask("AAAAAAAAAAAAAAAAAAAA");
     ui->lineEdit_nom->setInputMask("AAAAAAAAAAAAAAAAAAAA");
-
+    ui->tabWidget->setGeometry(0,0,1500,1000);
 
     chart();
 
@@ -252,6 +245,7 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::chart()
 {
+    QHBoxLayout *layout = new QHBoxLayout();
 
     QPieSeries *series = new QPieSeries();
     int nb_etudiant=C.calcul_type_stat("Etudiant");
@@ -267,10 +261,13 @@ void MainWindow::chart()
     chart->addSeries(series);
 
     chart->setTitle("Qt5 Pie Chart Example");
+    chart->setAnimationOptions(QChart::AllAnimations);
     QChartView *chartView = new QChartView(chart);
     chartView->resize(580,300);
-    chartView->setParent(ui->frame);
-
+    //chartView->setParent(ui->frame);
+    layout->addWidget(chartView);
+    ui->frame->setLayout(layout);
+    ui->frame->layout()->deleteLater();
     //qDebug() << "hind";
 
 
@@ -315,7 +312,7 @@ void MainWindow::mailSent(QString status)
 
 
 
-void MainWindow::on_pushButton_6_clicked()
+/*void MainWindow::on_pushButton_6_clicked()
 {
 
     string encode(string url);
@@ -409,4 +406,14 @@ string MainWindow::encode(string url)
     }
 
     return s.str();
+}*/
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    C.getDatabaseValue(ui->lineEdit_id->text().toInt());
+    ui->lineEdit_nom->setText(C.getnom());
+    ui->lineEdit_prenom->setText(C.getprenom());
+    ui->lineEdit_email->setText(C.getemail());
+    ui->lineEdit_numtel->setText(QString::number(C.getnumtel()));
+    ui->comboBox->setCurrentText(C.gettype());
 }
