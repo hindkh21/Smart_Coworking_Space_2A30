@@ -412,16 +412,8 @@ void MainWindow::on_pb_modifTache_clicked()
 
 void MainWindow::on_pb_stat_clicked()
 {
-
-    int res;
-    statistiques w(this);
-    w.setWindowTitle("Statistiques");
-    res = w.exec();
-    qDebug() << res;
-    if (res == QDialog::Rejected)
-      return;
-
-
-
-
+    s = new statistiques();
+    s->setWindowTitle("PRODUCTIVITE en fonction des taches effectuées");
+    s->choix_pie();
+    s->show();
 }

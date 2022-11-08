@@ -353,7 +353,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QPushButton" name="pb_recherche">
       <property name="geometry">
        <rect>
-        <x>1470</x>
+        <x>1440</x>
         <y>20</y>
         <width>101</width>
         <height>31</height>
@@ -366,24 +366,11 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QLineEdit" name="le_recherche">
       <property name="geometry">
        <rect>
-        <x>1110</x>
+        <x>1080</x>
         <y>20</y>
         <width>351</width>
         <height>31</height>
        </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pb_refresh">
-      <property name="geometry">
-       <rect>
-        <x>1554</x>
-        <y>580</y>
-        <width>31</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
       </property>
      </widget>
      <widget class="QPushButton" name="pb_trierNom">
@@ -424,6 +411,32 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
       </item>
      </widget>
+     <widget class="QPushButton" name="pb_stat">
+      <property name="geometry">
+       <rect>
+        <x>1440</x>
+        <y>580</y>
+        <width>121</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>STATISTIQUES</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_refresh">
+      <property name="geometry">
+       <rect>
+        <x>1560</x>
+        <y>20</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -432,9 +445,9 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QTableView" name="tab_tache">
       <property name="geometry">
        <rect>
-        <x>570</x>
+        <x>690</x>
         <y>90</y>
-        <width>531</width>
+        <width>411</width>
         <height>381</height>
        </rect>
       </property>
@@ -445,7 +458,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QGroupBox" name="groupBox_3">
       <property name="geometry">
        <rect>
-        <x>250</x>
+        <x>350</x>
         <y>80</y>
         <width>291</width>
         <height>391</height>
@@ -520,7 +533,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        </item>
        <item>
         <property name="text">
-         <string>FAITE</string>
+         <string>FAIT</string>
         </property>
        </item>
       </widget>
@@ -582,19 +595,6 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <width>31</width>
         <height>31</height>
        </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pb_stat">
-      <property name="geometry">
-       <rect>
-        <x>1320</x>
-        <y>250</y>
-        <width>101</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Statistique </string>
       </property>
      </widget>
     </widget>

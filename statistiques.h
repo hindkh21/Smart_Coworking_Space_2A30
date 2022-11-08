@@ -2,16 +2,20 @@
 #define STATISTIQUES_H
 
 #include <QDialog>
-#include <QGridLayout>
-#include <QWidget>
-#include <QtCharts/QBarCategoryAxis>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QtCharts/QChartView>
 #include <QtCharts/QBarSeries>
 #include <QtCharts/QBarSet>
-#include <QtCharts/QCategoryAxis>
-#include <QtCharts/QChartView>
-#include <QtCharts/QHorizontalStackedBarSeries>
 #include <QtCharts/QLegend>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtCharts/QHorizontalStackedBarSeries>
 #include <QtCharts/QLineSeries>
+#include <QtCharts/QCategoryAxis>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+
 #include "todolist.h"
 QT_CHARTS_USE_NAMESPACE
 
@@ -26,6 +30,9 @@ class statistiques : public QDialog
 public:
     explicit statistiques(QWidget *parent = nullptr);
     ~statistiques();
+
+    QChartView *chartView ;
+    void choix_pie();
 
 private:
     Ui::statistiques *ui;

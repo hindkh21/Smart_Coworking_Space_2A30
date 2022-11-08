@@ -4,6 +4,7 @@
 
 #include "employe.h"
 #include "todolist.h"
+#include "statistiques.h"
 
 namespace Ui {
 class MainWindow;
@@ -48,6 +49,7 @@ private:
     Ui::MainWindow *ui;
     Employe Etmp;
     ToDoList Tmp;
+    statistiques *s;
 };
 
 #endif // MAINWINDOW_H
