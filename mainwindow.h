@@ -41,7 +41,7 @@ private slots:
     void on_chercher_pb_clicked();
 
 
-    void on_upload_pb_clicked();
+    QString on_upload_pb_clicked();
 
     void on_pushButton_2_clicked();
 

@@ -13,7 +13,7 @@ Espaces::Espaces()
 
 }
 
-Espaces::Espaces(QString ID_ES,QString categorie,QString description,int nb_places,float superficie,float tarif,QString disponibilite,QImage image)
+Espaces::Espaces(QString ID_ES,QString categorie,QString description,int nb_places,float superficie,float tarif,QString disponibilite,QString image)
 {
     this->ID_ES=ID_ES;
     this->categorie=categorie;

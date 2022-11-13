@@ -753,7 +753,7 @@ color: rgb(170, 0, 127);</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string> écran de projection (10dt)</string>
+       <string> Ecran de projection (10dt)</string>
       </property>
      </widget>
      <widget class="QCheckBox" name="checkBox_2">
@@ -770,7 +770,7 @@ color: rgb(170, 0, 127);</string>
 </string>
       </property>
       <property name="text">
-       <string>système de visioconférence (20dt)</string>
+       <string>Système de visioconférence (20dt)</string>
       </property>
      </widget>
      <widget class="QCheckBox" name="checkBox_3">
@@ -786,7 +786,7 @@ color: rgb(170, 0, 127);</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string> tableau (5dt)</string>
+       <string> Tableau (5dt)</string>
       </property>
      </widget>
      <widget class="QCheckBox" name="checkBox_4">
@@ -802,7 +802,7 @@ color: rgb(170, 0, 127);</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>flip chart (5dt)</string>
+       <string>Flip chart (5dt)</string>
       </property>
      </widget>
      <widget class="QCheckBox" name="checkBox_5">
@@ -818,7 +818,7 @@ color: rgb(170, 0, 127);</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>video projecteur (10dt)</string>
+       <string>Video projecteur (10dt)</string>
       </property>
      </widget>
      <widget class="QPushButton" name="Facture_pb">
@@ -831,7 +831,7 @@ color: rgb(170, 0, 127);</string>
        </rect>
       </property>
       <property name="text">
-       <string>Generer la facture</string>
+       <string>Générer la facture</string>
       </property>
      </widget>
      <widget class="QComboBox" name="select_esp">

@@ -150,6 +150,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_ajouter_pb_clicked()
 {
+    QString image=on_upload_pb_clicked();
     QString categorie;
     QString ID_ES=ui->lineEdit->text();
     if(ui->radioButton->isChecked())
@@ -166,12 +167,7 @@ void MainWindow::on_ajouter_pb_clicked()
     float tarif=ui->lineEdit_4->text().toFloat();
     int nb_places=ui->spinBox->value();
     QString disponibilite=ui->comboBox->currentText();
-    //QPixmap image;
-    QVariant variant;
-    QByteArray array = variant.toByteArray();
-    QBuffer buffer(&array);
-    QImageReader reader(&buffer, "PNG");
-    QImage image = reader.read();
+
 
     Espaces ES(ID_ES,categorie,description,nb_places,superficie,tarif,disponibilite,image);
 
@@ -253,7 +249,7 @@ void MainWindow::on_modif_pb_clicked()
     float tarif=ui->lineEdit_4->text().toFloat();
     int nb_places=ui->spinBox->value();
     QString disponibilite=ui->comboBox->currentText();
-    QImage image;
+    QString image;
 
     Espaces ES(ID_ES,categorie,description,nb_places,superficie,tarif,disponibilite,image);
     bool test=ES.modifier();
@@ -340,7 +336,7 @@ void MainWindow::on_chercher_pb_clicked()
 
 
 
-void MainWindow::on_upload_pb_clicked()
+QString MainWindow::on_upload_pb_clicked()
 {
     Espaces ES;
     QString filename=QFileDialog::getOpenFileName(this, tr("Choose"), "", tr("Images (*.png *.jpg *.jpeg *.bmp)"));
@@ -362,7 +358,7 @@ void MainWindow::on_upload_pb_clicked()
         QMessageBox::critical(nullptr,QObject::tr("NOT OK"),QObject::tr("Echec importation d'image\n" "Click cancel to exit\n"),QMessageBox::Cancel);
         }
      }
-
+return filename;
 }
 
 
@@ -370,51 +366,93 @@ void MainWindow::on_upload_pb_clicked()
 
 void MainWindow::on_Descr_pb_clicked()
 {
-    QString val=ui->ComboBox_Descr->currentText();
-    QSqlQuery qry;
-    Espaces ES1;
-    qry=ES1.select(val);
-    if(qry.exec())
-    {
-        while(qry.next())
-        {
-            if(qry.value(1)=="Salle de Réunion")
-               {
-                QMessageBox::information(nullptr,QObject::tr("Description"),QObject::tr("Équipée d’un écran de projection, un système de visioconférence, d’un tableau blanc et d’un flip chart, cette salle peut accueillir jusqu’à 8 personnes.\n"
-                                                                                        "Cette salle est idéale pour accueillir, que ce soit une personne pour un conf-call, ou toute une équipe pour le brainstorming\n"
-                                                                                        "Aussi, si vous avez des clients à rencontrer ou une présentation à faire, ce bureau privé et indépendant est l’espace idéale pour vous.\n"
-                                                                                        "Nombre de Places:\n"
-                                                                                        "Superficie:\n"
-                                                                                        "Tarif(journée):\n"),QMessageBox::Cancel);
-                }
 
-            if(qry.value(1)=="Bureau Privatif")
-              {
-                QMessageBox::information(nullptr,QObject::tr("Description"),QObject::tr("Que ce soit pour une personne ou pour toute une équipe, nos bureaux privés et privatifs vous permettent d’avoir un espace de travail calme et agréable, tout en ayant accès à toutes les commodités et matériel du coworking space.\n"
-                                                                                        "Nos prix sont parfaitement étudiés pour vous permettre de faire des économies par rapport à l’une des plus grandes charges de la société (loyer et ameublement), et bien sûr, vous n’aurez aucune caution à payer.\n"
-                                                                                        "Bien sûr, vous aurez un accès en 24/7 et tout est inclus dans nos tarifs et vous n’aurez aucune autre charge cachée à payer.\n"
-                                                                                        "Nombre de Places:\n"
-                                                                                        "Superficie:\n"
-                                                                                        "Tarif(mois):\n"),QMessageBox::Cancel);
-            }
-            if(qry.value(1)=="Coworking Space")
-             {   QMessageBox::information(nullptr,QObject::tr("Description"),QObject::tr("L’open space de notre coworking est un espace de travail partagé parfaitement équipé.\n"
-                                                                                        "Il a été pensé pour permettre à nos coworkers et à nos membres d’avoir accès à toutes les commodités nécessaires à leurs travail et ainsi leurs permettre de se focaliser sur ce qui est important.\n"
-                                                                                        "Tout notre espace est modulable et peut ainsi offrir la possibilité d’accueillir des formations et des ateliers et ainsi créer un esprit de partage et de collaboration entre nos membres.\n"
-                                                                                        "Nombre de Places:\n"
-                                                                                        "Superficie:\n"
-                                                                                        "Tarif(journée):\n"),QMessageBox::Cancel);
-               }
-            if(qry.value(1)=="Salle de Conference")
-            {
-                QMessageBox::information(nullptr,QObject::tr("Description"),QObject::tr("C'est un lieu qui permet d’accueillir des événements spécifiques tels que des réunions professionnelles, des séminaires, des formations, la présentation d'un nouveau produit ou le lancement d’une nouvelle marque développée.\n"
-                                                                                        "Invitez vos participants et profitez d’un lieu qui vous accueillera dans les meilleures conditions possibles.\n"
-                                                                                        "Nombre de Places:\n"
-                                                                                        "Superficie:\n"
-                                                                                        "Tarif(journée):\n"),QMessageBox::Cancel);
-            }
+    QPdfWriter pdf("C:/Users/abdel/OneDrive/Documents/Gestion_Espaces/Description.pdf");
 
-        }
+                         QPainter painter(&pdf);
+
+                         int i = 2500;
+
+                         painter.setPen(Qt::red);
+                          painter.setFont(QFont("Arial",15 , 15 , true));
+                         painter.drawText(2300,1000,"DESCRIPTION DE L'ESPACE:");
+
+
+
+                         painter.setPen(Qt::black);
+                         painter.setFont(QFont("Arial", 9));
+
+                         QString des;
+                         QString des2;
+                         QString des3;
+                         QString s="Superficie:";
+                         QString t="Tarif(journée):";
+                         QString n="Nombre de places:";
+                         QString val=ui->ComboBox_Descr->currentText();
+                         QSqlQuery qry;
+                         Espaces ES1;
+                         qry=ES1.select(val);
+
+                         if(qry.exec())
+                         {
+                         while (qry.next())
+                         {
+                             if(qry.value(1)=="Salle de Reunion")
+                                {
+
+                                 des="Équipée d’un écran de projection, un système de visioconférence, d’un tableau blanc et d’un flip chart.\n";
+                                 des2="Cette salle est idéale pour accueillir, que ce soit une personne pour un conf-call, ou toute une équipe pour le brainstorming.\n";
+                                 des3="Aussi, si vous avez des clients à rencontrer ou une présentation à faire, ce bureau privé est l’espace idéale pour vous.\n";
+
+                                 }
+                             if(qry.value(1)=="Bureau Privatif")
+                               {
+                                  des="Que ce soit pour une personne ou pour toute une équipe, nos bureaux privés et privatifs vous permettent d’avoir un espace de travail calme, tout en ayant accès à toutes les commodités du coworking space.\n";
+                                  des2 ="Nos prix sont parfaitement étudiés pour vous permettre de faire des économies par rapport à l’une des plus grandes charges de la société, et bien sûr, vous n’aurez aucune caution à payer.\n";
+                                  des3="Bien sûr, vous aurez un accès en 24/7 et tout est inclus dans nos tarifs et vous n’aurez aucune autre charge cachée à payer.\n";
+
+                             }
+                             if(qry.value(1)=="Coworking Space")
+                              {
+                                 des="L’open space de notre coworking est un espace de travail partagé parfaitement équipé.\n";
+                                 des2="Il a été pensé pour permettre à nos coworkers d’avoir accès à toutes les commodités et ainsi leurs permettre de se focaliser sur ce qui est important.\n";
+                                 des3="Notre espace peut ainsi offrir la possibilité d’accueillir des formations et des ateliers et ainsi créer un esprit de partage entre nos membres.\n";
+
+                                }
+                             if(qry.value(1)=="Salle de Conference")
+                             {
+                                 des="C'est un lieu qui permet d’accueillir des événements spécifiques tels que des réunions professionnelles, des séminaires, des formations ou le lancement d’une nouvelle marque développée.\n";
+                                 des2="Invitez vos participants et profitez d’un lieu qui vous accueillera dans les meilleures conditions possibles.\n";
+                                 des3=" ";
+                             }
+
+                             painter.drawText(200,i,des);
+                             painter.drawText(200,i+200,des2);
+                             painter.drawText(200,i+400,des3);
+                             painter.drawText(200,i+1000,s);
+                             painter.drawText(1000,i+1000,qry.value(4).toString());
+                             painter.drawText(200,i+1500,n);
+                             painter.drawText(1500,i+1500,qry.value(3).toString());
+                             painter.drawText(200,i+2000,t);
+                             painter.drawText(1300,i+2000,qry.value(5).toString());
+                             QString filename=qry.value(7).toString();
+                             painter.drawImage(QRect(1800,5000,5000,5000), QImage(filename));
+
+
+                         }
+
+                         int answer = QMessageBox::question(this, "PDF généré avec succes", "Voulez vous afficher le PDF ?", QMessageBox::Yes |  QMessageBox::No);
+                         if (answer == QMessageBox::Yes)
+                         {
+                             QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/abdel/OneDrive/Documents/Gestion_Espaces/Description.pdf"));
+
+                             painter.end();
+                         }
+                         if (answer == QMessageBox::No)
+                         {
+                             painter.end();
+                         }
+
     }
 }
 
@@ -461,10 +499,11 @@ void MainWindow::on_Facture_pb_clicked()
 
                          int i = 2500;
 
-
-                         painter.drawText(4000,1000,"FACTURE DU CLIENT:");
                          painter.setPen(Qt::red);
-                         painter.setFont(QFont("Arial", 300));
+                         painter.setFont(QFont("Arial",15 , 15 , true));
+                         painter.drawText(2300,1000,"FACTURE DU CLIENT:");
+
+
                          painter.drawRect(0,1700,9600,500);
                          painter.setPen(Qt::black);
                          painter.setFont(QFont("Arial", 9));

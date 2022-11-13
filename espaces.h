@@ -7,14 +7,14 @@
 class Espaces
 {
     QString ID_ES,categorie,description,disponibilite;
-    QImage image;
+    QString image;
     int nb_places;
     float superficie,tarif;
 
 public:
     //constructeurs
     Espaces();
-    Espaces(QString,QString,QString,int,float,float,QString,QImage);
+    Espaces(QString,QString,QString,int,float,float,QString,QString);
     Espaces(QString,float,QString);
 
     //getters
@@ -25,7 +25,7 @@ public:
     float getTarif(){return tarif;}
     int getNbDePlaces(){return nb_places;}
     QString getDisponibilite(){return disponibilite;}
-    QImage getImage(){return image;}
+    QString getImage(){return image;}
 
     //setters
     void setID(QString n1){ID_ES=n1;}
@@ -35,7 +35,7 @@ public:
     void setTarif(float n5){tarif=n5;}
     void setNbDePlaces(int n6){nb_places=n6;}
     void setDisponibilite(QString n7){disponibilite=n7;}
-    void setImage(QImage *n8){image=*n8;}
+    void setImage(QString n8){image=n8;}
 
     //fonctionnalités de base relatives a l'entité etudiant
     bool ajouter();
