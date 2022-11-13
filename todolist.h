@@ -11,15 +11,14 @@ public:
     ToDoList();
     ToDoList(QString, QString, QString);
 
-
+    //CRUD
     bool ajouter();
     QSqlQueryModel * afficher(QString);
     bool supprimer(QString);
     bool modifier(int);
 
-
     QSqlQuery select(QString);
-
+    QString verification(QString);
     int nbr_tache(QString);
 };
 

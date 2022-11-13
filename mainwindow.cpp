@@ -3,6 +3,7 @@
 #include "employe.h"
 #include "todolist.h"
 #include "statistiques.h"
+#include "mychat_employe.h"
 #include<QMessageBox>
 #include <QDate>
 #include<QComboBox>
@@ -18,8 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->le_cin->setValidator(new QIntValidator(0,99999999, this));
     ui->tab_emp->setModel(Etmp.afficher());
 
-    //ui->pb_ajouter->hide();
-    //ui->pb_ajouter->show();
+    ui->groupBox_3->hide();
 }
 
 MainWindow::~MainWindow()
@@ -27,11 +27,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::on_pb_ajouter_clicked()
 {
     bool valide=true;
-
 
     //Recuperation des donnees
     QString id=ui->le_id->text();
@@ -44,7 +42,6 @@ void MainWindow::on_pb_ajouter_clicked()
     QString email=ui->le_email->text();
     QString profile=ui->cb_profile->currentText();
     QDate date=ui->dateEdit->date();
-
 
     //controle de saisie EMAIL
     /**************************/
@@ -292,21 +289,27 @@ void MainWindow::on_pb_refresh_clicked()
     ui->le_login->setText("");
     ui->le_pwd->setText("");
     ui->le_recherche->setText("");
-
 }
-/********************************************************ToDoList*********************************************************************/
+/**************************************************************ToDoList*********************************************************************/
 
 void MainWindow::on_pb_afficherTache_clicked()
 {
     QString id=ui->le_id_2->text();
+    QString profile=ui->le_profileEmp->text();
+
     if(id!="")
     {
         QSqlQueryModel *tab_tache=Tmp.afficher(id);
         if (tab_tache!=nullptr)
         {
             ui->tab_tache->setModel(tab_tache);
-           // ui->tab_tache->setColumnHidden(0, true);
         }
+       QString profile=Tmp.verification(id);
+       ui->le_profileEmp->setText(profile);
+       if (profile == "Directeur")
+            ui->groupBox_3->show();
+       else
+           ui->groupBox_3->hide();
     }
 }
 
@@ -418,4 +421,67 @@ void MainWindow::on_pb_stat_clicked()
     s->setWindowTitle("PRODUCTIVITE en fonction des taches effectuées");
     s->choix_pie();
     s->show();
+}
+
+
+
+void MainWindow::on_pb_stat_2_clicked()
+{
+    MyChat_employe *chat;
+    chat = new MyChat_employe();
+
+    chat->setFixedSize(680,500);
+    chat->show();
+}
+
+void MainWindow::on_pb_pdf_clicked()
+{
+    QString strStream;
+    QTextStream out(&strStream);
+    const int rowCount = ui->tab_emp->model()->rowCount();
+    const int columnCount =ui->tab_emp->model()->columnCount();
+
+
+                out <<  "<html>\n"
+                        "<head>\n"
+                        "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                        <<  QString("<title>%1</title>\n").arg("eleve")
+                        <<  "</head>\n"
+                        "<body bgcolor=#CFC4E1 link=#5000A0>\n"
+                            "<h1>Coordonnees des employeurs</h1>"
+
+                            "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+                // headers
+                    out << "<thead><tr bgcolor=#f0f0f0>";
+                    for (int column = 0; column < columnCount; column++)
+                        if (!ui->tab_emp->isColumnHidden(column))
+                            out << QString("<th>%1</th>").arg(ui->tab_emp->model()->headerData(column, Qt::Horizontal).toString());
+                    out << "</tr></thead>\n";
+                    // data table
+                       for (int row = 0; row < rowCount; row++) {
+                           out << "<tr>";
+                           for (int column = 0; column < columnCount; column++) {
+                               if (!ui->tab_emp->isColumnHidden(column)) {
+                                   QString data = ui->tab_emp->model()->data(ui->tab_emp->model()->index(row, column)).toString().simplified();
+                                   out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                               }
+                           }
+                           out << "</tr>\n";
+                       }
+                       out <<  "</table>\n"
+                           "</body>\n"
+                           "</html>\n";
+
+
+
+        QTextDocument *document = new QTextDocument();
+        document->setHtml(strStream);
+
+        //QTextDocument document;
+        //document.setHtml(html);
+        QPrinter printer(QPrinter::PrinterResolution);
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setOutputFileName("Coordonnees_employeurs.pdf");
+        document->print(&printer);
 }

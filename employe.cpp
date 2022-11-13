@@ -4,10 +4,7 @@
 #include<QObject>
 #include<QMessageBox>
 
-Employe::Employe()
-{
-
-}
+Employe::Employe(){}
 
 Employe::Employe(QString id_emp, QString nom_emp, QString prenom_emp,QString email_emp, QString login_emp, QString pwd_emp, int cin_emp,float salaire,QString profile_emp,QDate date_nais)
 {
@@ -26,12 +23,10 @@ Employe::Employe(QString id_emp, QString nom_emp, QString prenom_emp,QString ema
 bool Employe::ajouter()
 {
     QSqlQuery query;
-
     QString cin_s= QString::number(cin_emp);
     QString salaire_s= QString::number(salaire);
 
     query.prepare("insert into employe (id_emp, nom_emp, prenom_emp, cin_emp, salaire, email_emp, login_emp, pwd_emp, profile_emp, date_nais)" "values (:id_emp , :nom_emp ,:prenom_emp , :cin_emp, :salaire, :email_emp, :login_emp, :pwd_emp, :profile_emp, :date_nais)");
-
     query.bindValue(":id_emp",id_emp);
     query.bindValue(":nom_emp",nom_emp);
     query.bindValue(":prenom_emp",prenom_emp);
@@ -42,14 +37,12 @@ bool Employe::ajouter()
     query.bindValue(":pwd_emp",pwd_emp);
     query.bindValue(":profile_emp",profile_emp);
     query.bindValue(":date_nais",date_nais);
-
     return query.exec();  //envoi du requete
 }
 
 QSqlQueryModel * Employe::afficher()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
-
     model->setQuery("SELECT* FROM employe");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
@@ -61,17 +54,14 @@ QSqlQueryModel * Employe::afficher()
     model->setHeaderData(7, Qt::Horizontal, QObject::tr("Salaire"));
     model->setHeaderData(8, Qt::Horizontal, QObject::tr("Profile"));
     model->setHeaderData(9, Qt::Horizontal, QObject::tr("Date de Naissance"));
-
     return model;
 }
 
 bool Employe::supprimer(QString id_emp)
 {
     QSqlQuery query;
-
     query.prepare("Delete from employe where id_emp= :id_emp");
     query.bindValue(":id_emp",id_emp);
-
     return query.exec();
 }
 
@@ -92,7 +82,6 @@ bool Employe::modifier()
     query.bindValue(":pwd_emp",pwd_emp);
     query.bindValue(":profile_emp",profile_emp);
     query.bindValue(":date_nais",date_nais);
-
     return  query.exec();
 }
 
@@ -101,9 +90,7 @@ QSqlQuery Employe::select(QString val)
     QSqlQuery qry;
     qry.prepare("select * from employe where id_emp=?");
     qry.addBindValue(val);
-
     return qry;
-
 }
 
 QSqlQueryModel * Employe::recherche(QString rech)
@@ -115,7 +102,6 @@ QSqlQueryModel * Employe::recherche(QString rech)
    qry->bindValue(":prenom_emp",rech);
    qry->bindValue(":id_emp",rech);
    qry->exec();
-
    QSqlQueryModel *model = new QSqlQueryModel();
        model->setQuery(*qry);
 
@@ -138,7 +124,6 @@ QSqlQueryModel * Employe::trier_nom()  //ASC
         model->setHeaderData(7, Qt::Horizontal, QObject::tr("Salaire"));
         model->setHeaderData(8, Qt::Horizontal, QObject::tr("Profile"));
         model->setHeaderData(9, Qt::Horizontal, QObject::tr("Date de Naissance"));
-
         return model;
     }
 
@@ -146,7 +131,6 @@ QSqlQueryModel * Employe::trier_nom()  //ASC
     {
         QSqlQueryModel * model= new QSqlQueryModel();
         model->setQuery("SELECT * FROM EMPLOYE ORDER BY PRENOM_EMP");
-
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
@@ -157,7 +141,6 @@ QSqlQueryModel * Employe::trier_nom()  //ASC
         model->setHeaderData(7, Qt::Horizontal, QObject::tr("Salaire"));
         model->setHeaderData(8, Qt::Horizontal, QObject::tr("Profile"));
         model->setHeaderData(9, Qt::Horizontal, QObject::tr("Date de Naissance"));
-
         return model;
     }
 
@@ -165,7 +148,6 @@ QSqlQueryModel * Employe::trier_nom()  //ASC
     {
         QSqlQueryModel * model= new QSqlQueryModel();
         model->setQuery("SELECT * FROM EMPLOYE ORDER BY SALAIRE");
-
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
@@ -176,7 +158,6 @@ QSqlQueryModel * Employe::trier_nom()  //ASC
         model->setHeaderData(7, Qt::Horizontal, QObject::tr("Salaire"));
         model->setHeaderData(8, Qt::Horizontal, QObject::tr("Profile"));
         model->setHeaderData(9, Qt::Horizontal, QObject::tr("Date de Naissance"));
-
         return model;
     }
 

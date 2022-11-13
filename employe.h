@@ -21,12 +21,10 @@ public:
     QString getNom(){return nom_emp;}
     QString getPrenom(){return prenom_emp;}
 
-
     //Set
     void setID(QString id){this->id_emp=id;}
     void setNom(QString n){nom_emp=n;}
     void setPrenom(QString p){prenom_emp=p;}
-
 
     //CRUD
     bool ajouter();

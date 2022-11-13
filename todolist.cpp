@@ -76,8 +76,6 @@ bool ToDoList::modifier(int id_tache)
     return  query.exec();
 }
 
-//int total=queryt.value(0).toInt();
-
 int ToDoList::nbr_tache(QString etat)
 {
 QSqlQuery query;
@@ -94,7 +92,16 @@ QSqlQuery query;
      return total;
 }
 
-
+QString ToDoList::verification(QString id)
+{
+    QSqlQuery qry;
+    qry.prepare("select profile_emp from employe where id_emp=?");
+    qry.addBindValue(id);
+    qry.exec();
+    qry.first();
+    QString profile=qry.value(0).toString();
+    return profile;
+}
 
 
 

@@ -25,6 +25,7 @@ SOURCES += \
     employe.cpp \
     main.cpp \
     mainwindow.cpp \
+    mychat_employe.cpp \
     statistiques.cpp \
     todolist.cpp
 
@@ -32,11 +33,13 @@ HEADERS += \
     connection.h \
     employe.h \
     mainwindow.h \
+    mychat_employe.h \
     statistiques.h \
     todolist.h
 
 FORMS += \
     mainwindow.ui \
+    mychat_employe.ui \
     statistiques.ui
 
 # Default rules for deployment.

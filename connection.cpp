@@ -1,9 +1,6 @@
 #include "connection.h"
 
-Connection::Connection()
-{
-
-}
+Connection::Connection(){}
 
 bool Connection::createconnect()
 {
