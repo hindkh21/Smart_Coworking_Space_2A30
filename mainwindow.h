@@ -32,6 +32,7 @@ private slots:
     void on_pb_stat_clicked();
     void on_pb_stat_2_clicked();
     void on_pb_pdf_clicked();
+    void on_pb_afficherDrct_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tab_emp->setModel(Etmp.afficher());
 
     ui->groupBox_3->hide();
+    ui->groupBox->hide();
 }
 
 MainWindow::~MainWindow()
@@ -299,18 +300,35 @@ void MainWindow::on_pb_afficherTache_clicked()
 
     if(id!="")
     {
-        QSqlQueryModel *tab_tache=Tmp.afficher(id);
-        if (tab_tache!=nullptr)
-        {
-            ui->tab_tache->setModel(tab_tache);
-        }
+
        QString profile=Tmp.verification(id);
        ui->le_profileEmp->setText(profile);
        if (profile == "Directeur")
+       {
             ui->groupBox_3->show();
+            ui->groupBox->show();
+       }
        else
+       {
            ui->groupBox_3->hide();
+           ui->groupBox->hide();
+           QSqlQueryModel *tab_tache=Tmp.afficher(id);
+           if (tab_tache!=nullptr)
+           {
+               ui->tab_tache->setModel(tab_tache);
+           }
+       }
     }
+}
+
+void MainWindow::on_pb_afficherDrct_clicked()
+{
+     QString id = ui->le_idEmp->text();
+     QSqlQueryModel *tab_tache=Tmp.afficher(id);
+     if (tab_tache!=nullptr)
+     {
+         ui->tab_tache->setModel(tab_tache);
+     }
 }
 
 void MainWindow::on_pb_ajoutTache_clicked()
@@ -485,3 +503,4 @@ void MainWindow::on_pb_pdf_clicked()
         printer.setOutputFileName("Coordonnees_employeurs.pdf");
         document->print(&printer);
 }
+
