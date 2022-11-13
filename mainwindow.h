@@ -52,6 +52,8 @@ private slots:
 
     float calculer();
 
+    void on_Excel_pb_clicked();
+
 private:
     Ui::MainWindow *ui;
     Espaces ES;

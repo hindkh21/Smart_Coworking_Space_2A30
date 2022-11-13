@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>778</width>
-    <height>600</height>
+    <height>588</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>761</width>
-      <height>551</height>
+      <height>531</height>
      </rect>
     </property>
     <property name="font">
@@ -510,7 +510,7 @@ color: rgb(170, 0, 127);</string>
         <x>360</x>
         <y>240</y>
         <width>371</width>
-        <height>261</height>
+        <height>231</height>
        </rect>
       </property>
       <property name="text">
@@ -595,9 +595,9 @@ color: rgb(170, 0, 127);</string>
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>410</y>
-        <width>31</width>
-        <height>31</height>
+        <y>10</y>
+        <width>21</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -628,9 +628,9 @@ color: rgb(170, 0, 127);</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>420</y>
+        <y>10</y>
         <width>81</width>
-        <height>16</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -698,6 +698,36 @@ color: rgb(170, 0, 127);</string>
       </property>
       <property name="text">
        <string>Générer la description</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>420</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Exporter Excel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Excel_pb">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>410</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../Bureau/2A/Projet c++/excel.png</normaloff>../../Bureau/2A/Projet c++/excel.png</iconset>
       </property>
      </widget>
     </widget>

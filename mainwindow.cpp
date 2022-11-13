@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "espaces.h"
+#include "exportexcelobject.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QDoubleValidator>
@@ -154,11 +155,11 @@ void MainWindow::on_ajouter_pb_clicked()
     QString categorie;
     QString ID_ES=ui->lineEdit->text();
     if(ui->radioButton->isChecked())
-        categorie="Salle de Reunion";
+        categorie="Coworking Space";
     if(ui->radioButton_2->isChecked())
         categorie="Bureau Privatif";
     if(ui->radioButton_3->isChecked())
-        categorie="Coworking Space";
+        categorie="Salle de Reunion";
     if(ui->radioButton_4->isChecked())
         categorie="Salle de Conference";
     QString description=ui->lineEdit_2->text();
@@ -249,7 +250,7 @@ void MainWindow::on_modif_pb_clicked()
     float tarif=ui->lineEdit_4->text().toFloat();
     int nb_places=ui->spinBox->value();
     QString disponibilite=ui->comboBox->currentText();
-    QString image;
+    QString image=on_upload_pb_clicked();;
 
     Espaces ES(ID_ES,categorie,description,nb_places,superficie,tarif,disponibilite,image);
     bool test=ES.modifier();
@@ -436,7 +437,7 @@ void MainWindow::on_Descr_pb_clicked()
                              painter.drawText(200,i+2000,t);
                              painter.drawText(1300,i+2000,qry.value(5).toString());
                              QString filename=qry.value(7).toString();
-                             painter.drawImage(QRect(1800,5000,5000,5000), QImage(filename));
+                             painter.drawImage(QRect(1800,5000,4000,4000), QImage(filename));
 
 
                          }
@@ -578,4 +579,36 @@ void MainWindow::on_Facture_pb_clicked()
                              painter.end();
                          }
 
+
+
+
+}
+void MainWindow::on_Excel_pb_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
+                                                                     tr("Excel Files (*.xls)"));
+                     if (fileName.isEmpty())
+                         return;
+
+                     ExportExcelObject obj(fileName, "Espaces", ui->tableView);
+
+                     //colums to export
+                     obj.addField(0, "ID_ES", "char(20)");
+                     obj.addField(1, "Catégorie", "char(20)");
+                     obj.addField(2, "Description", "char(20)");
+                     obj.addField(3, "Nb_Places", "char(20)");
+                     obj.addField(4, "Superficie", "char(20)");
+                     obj.addField(5, "Tarif", "char(20)");
+                     obj.addField(6, "Disponibilite", "char(20)");
+                     obj.addField(7, "Image", "char(20)");
+
+
+
+
+                     int retVal = obj.export2Excel();
+                     if( retVal > 0)
+                     {
+                         QMessageBox::information(this, tr("Done"),
+                                                  tr("Toutes les informations ont été enregistrée"));
+                     }
 }
