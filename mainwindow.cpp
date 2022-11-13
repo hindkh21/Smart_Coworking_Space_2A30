@@ -585,6 +585,7 @@ void MainWindow::on_Facture_pb_clicked()
 }
 void MainWindow::on_Excel_pb_clicked()
 {
+    //exporter le tableau en pdf
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                                      tr("Excel Files (*.xls)"));
                      if (fileName.isEmpty())
