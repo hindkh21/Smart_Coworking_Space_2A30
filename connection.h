@@ -2,7 +2,7 @@
 #define CONNECTION_H
 #include <QSqlDatabase>
 
-
+//test
 
 class Connection
 {
