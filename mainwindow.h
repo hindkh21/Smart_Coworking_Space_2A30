@@ -34,6 +34,8 @@ private slots:
     void on_pb_pdf_clicked();
     void on_pb_afficherDrct_clicked();
 
+    void on_pb_refresh_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employe Etmp;

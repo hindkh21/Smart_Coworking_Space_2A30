@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>1641</width>
-      <height>781</height>
+      <height>821</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -37,10 +37,10 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>50</x>
         <y>50</y>
-        <width>301</width>
-        <height>561</height>
+        <width>241</width>
+        <height>721</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -52,17 +52,21 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
       <widget class="QPushButton" name="pb_ajouter">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>500</y>
+         <x>10</x>
+         <y>640</y>
          <width>61</width>
-         <height>51</height>
+         <height>61</height>
         </rect>
        </property>
        <property name="styleSheet">
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>Ajout</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="image.qrc">
+         <normaloff>:/image/image/ajouter.png</normaloff>:/image/image/ajouter.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -71,280 +75,229 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         </size>
        </property>
       </widget>
-      <widget class="QLineEdit" name="le_salaire">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>200</y>
-         <width>131</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_6">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>220</y>
-         <width>47</width>
-         <height>13</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Salaire</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="le_login">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>290</y>
-         <width>131</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="le_pwd">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>330</y>
-         <width>131</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_9">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>260</y>
-         <width>47</width>
-         <height>13</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Email</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_12">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>390</y>
-         <width>47</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Profile</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cb_profile">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>380</y>
-         <width>131</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>Administrateur</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Personel</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Directeur</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_7">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>300</y>
-         <width>47</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Login</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_8">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>340</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>mot de passe</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="le_email">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>250</y>
-         <width>131</width>
-         <height>31</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QPushButton" name="pb_supprimer">
        <property name="geometry">
         <rect>
-         <x>190</x>
-         <y>500</y>
-         <width>51</width>
-         <height>51</height>
+         <x>170</x>
+         <y>640</y>
+         <width>61</width>
+         <height>61</height>
         </rect>
        </property>
        <property name="text">
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>../image/remove.png</normaloff>../image/remove.png</iconset>
+        <iconset resource="image.qrc">
+         <normaloff>:/image/image/delet.png</normaloff>:/image/image/delet.png</iconset>
        </property>
        <property name="iconSize">
         <size>
-         <width>150</width>
-         <height>150</height>
+         <width>50</width>
+         <height>50</height>
         </size>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>440</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Date de naissance</string>
-       </property>
-      </widget>
-      <widget class="QDateEdit" name="dateEdit">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>430</y>
-         <width>131</width>
-         <height>31</height>
-        </rect>
        </property>
       </widget>
       <widget class="QPushButton" name="pb_modifier">
        <property name="geometry">
         <rect>
-         <x>120</x>
-         <y>500</y>
+         <x>90</x>
+         <y>640</y>
          <width>61</width>
          <height>61</height>
         </rect>
        </property>
        <property name="text">
-        <string>MODIFIER</string>
+        <string/>
        </property>
-      </widget>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>80</y>
-         <width>156</width>
-         <height>51</height>
-        </rect>
+       <property name="icon">
+        <iconset resource="image.qrc">
+         <normaloff>:/image/image/edit.png</normaloff>:/image/image/edit.png</iconset>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>N° CIN</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="le_cin"/>
-        </item>
-       </layout>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
       </widget>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>40</x>
-         <y>20</y>
-         <width>156</width>
-         <height>51</height>
+         <y>30</y>
+         <width>160</width>
+         <height>571</height>
         </rect>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QVBoxLayout" name="verticalLayout_9">
         <item>
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Identifiant</string>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Identifiant</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_id"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>N° CIN</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_cin"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Prenom</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_prenom"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Nom</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_nom"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QLineEdit" name="le_id"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>120</y>
-         <width>156</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item>
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>Nom</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="le_nom"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>80</y>
-         <width>156</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>Prenom</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="le_prenom"/>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>Salaire</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_salaire"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string>Email</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="le_email"/>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_14">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_10">
+                <item>
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string>Login</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="le_login"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_11">
+                <item>
+                 <widget class="QLabel" name="label_8">
+                  <property name="text">
+                   <string>mot de passe</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="le_pwd"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_12">
+                <item>
+                 <widget class="QLabel" name="label_12">
+                  <property name="text">
+                   <string>Profile</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="cb_profile">
+                  <item>
+                   <property name="text">
+                    <string>Administrateur</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Personel</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Directeur</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_13">
+                <item>
+                 <widget class="QLabel" name="label_13">
+                  <property name="text">
+                   <string>Date de naissance</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QDateEdit" name="dateEdit"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -378,8 +331,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>../image/recherche.png</normaloff>../image/recherche.png</iconset>
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/recherche.png</normaloff>:/image/image/recherche.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -411,8 +364,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>../image/trie.png</normaloff>../image/trie.png</iconset>
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/trie.png</normaloff>:/image/image/trie.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -459,8 +412,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>../image/statistic.png</normaloff>../image/statistic.png</iconset>
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/statistic.png</normaloff>:/image/image/statistic.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -482,8 +435,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>../image/refresh.png</normaloff>../image/refresh.png</iconset>
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/refresh.png</normaloff>:/image/image/refresh.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -505,8 +458,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>../image/chatbox.png</normaloff>../image/chatbox.png</iconset>
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/chatbox.png</normaloff>:/image/image/chatbox.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -528,8 +481,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>../image/pdf.png</normaloff>../image/pdf.png</iconset>
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/pdf.png</normaloff>:/image/image/pdf.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -546,8 +499,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QTableView" name="tab_tache">
       <property name="geometry">
        <rect>
-        <x>710</x>
-        <y>230</y>
+        <x>760</x>
+        <y>220</y>
         <width>411</width>
         <height>381</height>
        </rect>
@@ -559,8 +512,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QGroupBox" name="groupBox_3">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>260</y>
+        <x>440</x>
+        <y>220</y>
         <width>291</width>
         <height>391</height>
        </rect>
@@ -574,36 +527,33 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
       <widget class="QPushButton" name="pb_ajoutTache">
        <property name="geometry">
         <rect>
-         <x>210</x>
-         <y>320</y>
-         <width>75</width>
-         <height>23</height>
+         <x>220</x>
+         <y>300</y>
+         <width>61</width>
+         <height>61</height>
         </rect>
        </property>
        <property name="text">
-        <string>Ajouter</string>
+        <string/>
        </property>
-      </widget>
-      <widget class="QPushButton" name="pb_modifTache">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>350</y>
-         <width>75</width>
-         <height>23</height>
-        </rect>
+       <property name="icon">
+        <iconset resource="image.qrc">
+         <normaloff>:/image/image/ajouter.png</normaloff>:/image/image/ajouter.png</iconset>
        </property>
-       <property name="text">
-        <string>modifier</string>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
        </property>
       </widget>
       <widget class="QLineEdit" name="des_tache">
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>50</y>
+         <y>60</y>
          <width>261</width>
-         <height>191</height>
+         <height>141</height>
         </rect>
        </property>
       </widget>
@@ -614,7 +564,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>250</y>
+         <y>210</y>
          <width>261</width>
          <height>41</height>
         </rect>
@@ -638,137 +588,246 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
        </item>
       </widget>
-     </widget>
-     <widget class="QLineEdit" name="le_id_2">
-      <property name="geometry">
-       <rect>
-        <x>860</x>
-        <y>40</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_id">
-      <property name="geometry">
-       <rect>
-        <x>820</x>
-        <y>40</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>ID</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pb_afficherTache">
-      <property name="geometry">
-       <rect>
-        <x>1000</x>
-        <y>40</y>
-        <width>75</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Valider</string>
-      </property>
+      <widget class="QPushButton" name="pb_modifTache">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>300</y>
+         <width>61</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="image.qrc">
+         <normaloff>:/image/image/edit.png</normaloff>:/image/image/edit.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
      </widget>
      <widget class="QPushButton" name="pb_suppTache">
       <property name="geometry">
        <rect>
-        <x>1040</x>
-        <y>620</y>
-        <width>75</width>
-        <height>31</height>
+        <x>1110</x>
+        <y>610</y>
+        <width>61</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Supprimer</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/delet.png</normaloff>:/image/image/delet.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
       </property>
      </widget>
      <widget class="QLineEdit" name="le_idTache">
       <property name="geometry">
        <rect>
-        <x>1000</x>
-        <y>620</y>
+        <x>1070</x>
+        <y>630</y>
         <width>31</width>
         <height>31</height>
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="le_profileEmp">
-      <property name="geometry">
-       <rect>
-        <x>480</x>
-        <y>50</y>
-        <width>161</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_id_2">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>50</y>
-        <width>61</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Profile:</string>
-      </property>
-     </widget>
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>700</x>
-        <y>150</y>
-        <width>421</width>
+        <x>760</x>
+        <y>130</y>
+        <width>411</width>
         <height>80</height>
        </rect>
       </property>
       <property name="title">
-       <string>Afficher</string>
+       <string/>
       </property>
       <widget class="QPushButton" name="pb_afficherDrct">
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>30</y>
-         <width>75</width>
-         <height>31</height>
+         <y>20</y>
+         <width>61</width>
+         <height>41</height>
         </rect>
        </property>
        <property name="text">
-        <string>Afficher</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="image.qrc">
+         <normaloff>:/image/image/afficher.png</normaloff>:/image/image/afficher.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
        </property>
       </widget>
       <widget class="QLineEdit" name="le_idEmp">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>30</y>
-         <width>131</width>
-         <height>31</height>
+         <x>120</x>
+         <y>20</y>
+         <width>171</width>
+         <height>41</height>
         </rect>
        </property>
       </widget>
       <widget class="QLabel" name="label_id_3">
        <property name="geometry">
         <rect>
-         <x>90</x>
-         <y>30</y>
-         <width>61</width>
-         <height>31</height>
+         <x>50</x>
+         <y>20</y>
+         <width>53</width>
+         <height>41</height>
         </rect>
        </property>
        <property name="text">
         <string>ID_emp</string>
        </property>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="pb_refresh_2">
+      <property name="geometry">
+       <rect>
+        <x>1170</x>
+        <y>20</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/refresh.png</normaloff>:/image/image/refresh.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_profileEmp">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>20</y>
+        <width>211</width>
+        <height>41</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_afficherTache">
+      <property name="geometry">
+       <rect>
+        <x>1060</x>
+        <y>20</y>
+        <width>61</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/valider.png</normaloff>:/image/image/valider.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>35</width>
+        <height>40</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_id">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>20</y>
+        <width>16</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_id_2">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>20</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>220</y>
+        <width>311</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/toDoList.png</normaloff>:/image/image/toDoList.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>400</width>
+        <height>400</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>20</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="image.qrc">
+        <normaloff>:/image/image/profile.png</normaloff>:/image/image/profile.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
      </widget>
     </widget>
    </widget>
@@ -785,6 +844,8 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="image.qrc"/>
+ </resources>
  <connections/>
 </ui>

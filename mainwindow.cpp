@@ -336,7 +336,7 @@ void MainWindow::on_pb_ajoutTache_clicked()
     bool valide=true;
 
     //Recuperation des donnees
-    QString id=ui->le_id_2->text();
+    QString id=ui->le_idEmp->text();
     QString task=ui->des_tache->text();
     QString etat="A FAIRE";                 //PAR DEFAULT A FAIRE
 
@@ -374,6 +374,7 @@ void MainWindow::on_tab_tache_activated(const QModelIndex &index)
         {
             ui->le_idTache->setText(qry.value(0).toString());
             ui->des_tache->setText(qry.value(1).toString());
+            ui->etat_tache->setCurrentText(qry.value(2).toString());
         }
     }
 }
@@ -381,7 +382,7 @@ void MainWindow::on_tab_tache_activated(const QModelIndex &index)
 void MainWindow::on_pb_suppTache_clicked()
 {
     QString id_tache=ui->le_idTache->text();
-    QString id=ui->le_id_2->text();
+    QString id=ui->le_idEmp->text();
 
     bool test=Tmp.supprimer(id_tache);
 
@@ -406,9 +407,12 @@ void MainWindow::on_pb_modifTache_clicked()
 
     //Recuperation des donnees
     int id=ui->le_idTache->text().toInt();
+
     QString id_emp=ui->le_id_2->text();
+    QString idE=ui->le_idEmp->text();
     QString task=ui->des_tache->text();
     QString etat=ui->etat_tache->currentText();
+    QString profile=ui->le_profileEmp->text();
 
     if(valide)
     {
@@ -418,7 +422,10 @@ void MainWindow::on_pb_modifTache_clicked()
         if(test)
         {
             //REFRECH
-            ui->tab_tache->setModel(Tmp.afficher(id_emp));
+            if (profile == "Directeur")
+                ui->tab_tache->setModel(Tmp.afficher(idE));
+            else
+                ui->tab_tache->setModel(Tmp.afficher(id_emp));
 
             QMessageBox::information(nullptr, QObject::tr("OK"),
                         QObject::tr("EDIT effectué\n"
@@ -504,3 +511,17 @@ void MainWindow::on_pb_pdf_clicked()
         document->print(&printer);
 }
 
+
+void MainWindow::on_pb_refresh_2_clicked()
+{
+    QSqlQueryModel *model = new QSqlQueryModel();
+    ui->tab_tache->setModel(model);
+    ui->le_id_2->setText("");
+    ui->le_profileEmp->setText("");
+    ui->le_idEmp->setText("");
+    ui->le_idTache->setText("");
+    ui->des_tache->setText("");
+    ui->etat_tache->setCurrentText("A FAIRE");
+    ui->groupBox_3->hide();
+    ui->groupBox->hide();
+}
