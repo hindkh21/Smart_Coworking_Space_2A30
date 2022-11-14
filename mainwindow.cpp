@@ -59,11 +59,9 @@ MainWindow::MainWindow(QWidget *parent)
 
      // create empty bar chart objects:
      QCPBars *nombre = new QCPBars(ui->customplot->xAxis, ui->customplot->yAxis);
-
      nombre->setAntialiased(false);
-     //regen->setStackingGap(1);
-     //nuclear->setStackingGap(1);
      nombre->setStackingGap(1);
+
      // set names and colors:
      nombre->setName("Nombre d'espaces");
      nombre->setPen(QPen(QColor(111, 9, 176).lighter(170)));
