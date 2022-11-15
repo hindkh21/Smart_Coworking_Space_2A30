@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>Image/coworking.jpg</file>
+        <file>Image/background.PNG</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/add.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/add-property.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/add-user.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/ascending-sort.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/back-arrow.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/close.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/confirm.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/edit.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/edit-property.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/edit-user.gif</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/gavel.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/icon.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/judge.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/pdf-file.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/trash.png</file>
+        <file>../../../Downloads/Smart_Police_Station-master/Smart_Police_Station-master/Affaires_Juridiques/Images/trend.png</file>
+    </qresource>
+</RCC>

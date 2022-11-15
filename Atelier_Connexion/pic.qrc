@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/pic">
+        <file alias="pic">Image/Inkedcoww_LI.jpg</file>
+    </qresource>
+</RCC>
