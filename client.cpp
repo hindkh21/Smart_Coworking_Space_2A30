@@ -146,6 +146,20 @@ void Client::getDatabaseValue(int id)
     type=query.value(5).toString();
 
 }
+/*void Client::sendsms(int id)
+{
+    QSqlQuery query;
+    char msg[20];
+    char s[1000] ="curl.exe -X POST https://api.twilio.com/2010-04-01/Accounts/ACffc1dfa692390733c5eefae4834590f5/Messages.json ^"
+                  "--data-urlencode \"Body="+msg+"\" ^"
+                  "--data-urlencode \"From=+15732943693\" ^"
+                  "--data-urlencode \"To=+21692656967\" ^"
+                  "-u ACffc1dfa692390733c5eefae4834590f5:f4ce99e3c3e75101178d47b3571c09da";
+    query.prepare("SELECT * FROM RESERVATION WHERE ID_RES = '"+QString::number(id)+"'");
+    system(s);
 
+
+}
+*/
 
 

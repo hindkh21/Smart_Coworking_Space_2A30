@@ -20,18 +20,18 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-
     ui->setupUi(this);
-
     ui->tab_client->setModel(C.afficher());
     ui->lineEdit_id->setValidator(new QIntValidator(0,99999999,this));
     ui->lineEdit_numtel->setValidator(new QIntValidator(0,99999999,this));
-    ui->lineEdit_prenom->setInputMask("AAAAAAAAAAAAAAAAAAAA");
-    ui->lineEdit_nom->setInputMask("AAAAAAAAAAAAAAAAAAAA");
+    QRegularExpression rx("\\b[a-zA-Z]{1,20}\\b");
+    ui->lineEdit_prenom->setValidator(new QRegularExpressionValidator(rx,this));
+    ui->lineEdit_nom->setValidator(new QRegularExpressionValidator(rx,this));
+    //ui->lineEdit_prenom->setInputMask("AAAAAAAAAAAAAAAAAAAA");
+    //ui->lineEdit_nom->setInputMask("AAAAAAAAAAAAAAAAAAAA");
     ui->tabWidget->setGeometry(0,0,1500,1000);
-
+    ui->paswd_2->setText("nuoqikogfnfeebao");
     chart();
-
 }
 
 MainWindow::~MainWindow()
@@ -49,29 +49,11 @@ void MainWindow::on_pushButton_3_clicked()//ajouter
     QString nom=ui->lineEdit_nom->text();
     int numtel= ui->lineEdit_numtel->text().toInt();
     QString email=ui->lineEdit_email->text();
-    QString type;
+    QString type=ui->comboBox->currentText();
     QRegExp mailREX("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b");
        mailREX.setCaseSensitivity(Qt::CaseInsensitive);
        mailREX.setPatternSyntax(QRegExp::RegExp);
-
        bool regMat = mailREX.exactMatch(ui->lineEdit_email->text());
-
-
-    if(ui->comboBox->currentIndex()==0)
-
-        type="Etudiant";
-
-
-    else
-        if(ui->comboBox->currentIndex()==1)
-        {
-
-    type="Eleve";
-        }
-    else {
-        type="ely baadou";
-    }
-
     Client C(id,prenom,nom,numtel,email,type);
 
 
@@ -107,6 +89,7 @@ void MainWindow::on_pushButton_3_clicked()//ajouter
 
                    }
       }
+    chart();
 
 
 
@@ -170,24 +153,15 @@ void MainWindow::on_pushButton_9_clicked()
         }
 }
 
-
-
-
-
-
 void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
-
     ui->tab_client->setModel(C.recherche(ui->lineEdit->text(),ui->lineEdit->text(),ui->lineEdit->text()));
-
 }
 
 void MainWindow::on_pushButton_7_clicked()
 {
     ui->tab_client->setModel(C.afficher1());
 }
-
-
 
 void MainWindow::on_pushButton_2_clicked()
 {
@@ -251,10 +225,20 @@ void MainWindow::chart()
     int nb_etudiant=C.calcul_type_stat("Etudiant");
     int nb_eleve=C.calcul_type_stat("Eleve");
     int nb_total=nb_etudiant+nb_eleve;
-    series->append("Etudiant",nb_etudiant);
+    QPieSlice *s1=new QPieSlice();
+    s1->setLabel("Etudiant");
+    s1->setValue(nb_etudiant);
+    s1->setColor(QColor(250, 216, 255));
+    QPieSlice *s2=new QPieSlice();
+    s2->setLabel("Eleve");
+    s2->setValue(nb_eleve);
 
-    series->append("Eleve",nb_eleve);
+    s2->setColor(QColor(250, 170, 255));
+
+    series->append(s1);
+    series->append(s2);
     series->setPieSize(nb_total);
+
     QChart *chart = new QChart();
 
 
@@ -298,7 +282,6 @@ void MainWindow::on_pushButton_clicked()
     qDebug()  <<  "hi";
     Smtp* smtp = new Smtp(ui->uname_2->text(), ui->paswd_2->text(), ui->server_2->text(), ui->port_2->text().toInt());
     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
-
     if( !files.isEmpty() )
         smtp->sendMail(ui->uname_2->text(), ui->rcpt_2->text() , ui->subject_2->text(),ui->msg_2->toPlainText(), files );
     else
@@ -312,101 +295,24 @@ void MainWindow::mailSent(QString status)
 
 
 
-/*void MainWindow::on_pushButton_6_clicked()
+void MainWindow::on_pushButton_6_clicked()
 {
-
-    string encode(string url);
-
-    // the SMS gateway's host
-    // and port
-    string host       = "localhost";
-    int port          = 9502;
-
-    // username
-    // and password
-    string username   = "admin";
-    string password   = "abc123";
-
-    // message
-    string message    = "This is a test SMS.";
-
-    // originator's phone number
-    string originator = "+44555555555";
-
-    // recipient's phone number.
-    // to send the SMS to multiple recipients, separate them by using commas without spaces
-    string recipient  = "+44333333333";
-
-    // preparing the HTTPRequest URL
-    stringstream url;
-        url << "/api?action=sendmessage&username=" << encode(username);
-        url << "&password=" << encode(password);
-        url << "&recipient=" << encode(recipient);
-        url << "&messagetype=SMS:TEXT&messagedata=" << encode(message);
-        url << "&originator=" << encode(originator);
-        url << "&responseformat=xml";
-
-    // create socket
-    HINTERNET inet = InternetOpen("Ozeki", INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0);
-
-    // open connection and bind it to the socket
-    HINTERNET conn = InternetConnect(inet, host.c_str() , port, NULL, NULL, INTERNET_SERVICE_HTTP, 0, 0);
-
-    // open the HTTP request
-    HINTERNET sess = HttpOpenRequest(conn, "GET", url.str().c_str(), "HTTP/1.1", NULL, NULL, INTERNET_FLAG_PRAGMA_NOCACHE | INTERNET_FLAG_RELOAD, 0);
-
-    // check errors
-    int error = GetLastError();
-    if(error == NO_ERROR)
-    {
-        // send HTTP request
-        HttpSendRequest(sess, NULL, 0, NULL,0);
-
-        // receive HTTP response
-
-        int size = 1024;
-        char *buffer = new char[size + 1];
-        DWORD read;
-        int rsize = InternetReadFile(sess, (void *)buffer, size, &read);
-        string s = buffer;
-        s = s.substr(0, read);
-
-        // check status code
-        int pos = s.find("<statuscode>0</statuscode>");
-
-        // if statuscode is 0, write "Message sent." to output
-        // else write "Error."
-        if(pos > 0) cout << "Message sent." << endl;
-        else cout << "Error." << endl;
-
+    QSqlQuery query;
+    query.exec("SELECT DISPONIBILITE FROM RESERVATION WHERE ID_RES = '"+ui->lineEdit_sms_id->text()+"'");
+    query.first();
+    std::string text=query.value(0).toString().toStdString();
+    std::string num_tel=ui->lineEdit_sms_num_tel->text().toStdString();
+    std::string s = "curl -X \"POST\" \"https://rest.nexmo.com/sms/json\"  "
+                   "-d \"from=ComfyBox\" "
+                   "-d \"text="+text+"\" "
+                   "-d \"to=216"+num_tel+"\" "
+                   "-d \"api_key=3d23f342\"  "
+                   "-d \"api_secret=8xXF0BZmKQIgI8ne\"";
+    const char* str = s.c_str();
+    system(str);
 
 }
 
-
-// encoding converts characters that are not allowed in a URL into character-entity equivalent
-
-}
-string MainWindow::encode(string url)
-{
-    string hex = "0123456789abcdef";
-    stringstream s;
-
-    for(unsigned int i = 0; i < url.length(); i++)
-    {
-        byte c = (char)url.c_str()[i];
-        if( ('a' <= c && c <= 'z')
-        || ('A' <= c && c <= 'Z')
-        || ('0' <= c && c <= '9') ){
-            s << c;
-        } else {
-            if(c == ' ') s << "%20";
-            else
-            s << '%' << (hex[c >> 4]) << (hex[c & 15]);
-        }
-    }
-
-    return s.str();
-}*/
 
 void MainWindow::on_pushButton_8_clicked()
 {
