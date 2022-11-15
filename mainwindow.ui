@@ -28,7 +28,7 @@
 font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -612,39 +612,6 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QPushButton" name="pb_suppTache">
-      <property name="geometry">
-       <rect>
-        <x>1110</x>
-        <y>610</y>
-        <width>61</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="image.qrc">
-        <normaloff>:/image/image/delet.png</normaloff>:/image/image/delet.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>50</width>
-        <height>50</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="le_idTache">
-      <property name="geometry">
-       <rect>
-        <x>1070</x>
-        <y>630</y>
-        <width>31</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
@@ -826,6 +793,101 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <size>
         <width>50</width>
         <height>50</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="gb_delet">
+      <property name="geometry">
+       <rect>
+        <x>1000</x>
+        <y>610</y>
+        <width>171</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QPushButton" name="pb_suppTache">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>61</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="image.qrc">
+         <normaloff>:/image/image/delet.png</normaloff>:/image/image/delet.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_idTache">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>30</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QComboBox" name="cb_etat">
+      <property name="geometry">
+       <rect>
+        <x>1180</x>
+        <y>220</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>TOUT</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>A FAIRE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>EN COURS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>FAIT</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pb_fitre">
+      <property name="geometry">
+       <rect>
+        <x>1310</x>
+        <y>220</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Filtre</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>45</width>
+        <height>45</height>
        </size>
       </property>
      </widget>

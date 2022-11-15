@@ -36,6 +36,8 @@ private slots:
 
     void on_pb_refresh_2_clicked();
 
+    void on_pb_fitre_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employe Etmp;

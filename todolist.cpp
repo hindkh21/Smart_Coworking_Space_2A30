@@ -5,10 +5,7 @@
 #include<QMessageBox>
 #include<QSqlQueryModel>
 
-ToDoList::ToDoList()
-{
-
-}
+ToDoList::ToDoList(){}
 
 ToDoList::ToDoList(QString id_emp, QString task, QString etat)
 {
@@ -68,7 +65,6 @@ bool ToDoList::modifier(int id_tache)
     QString id=QString::number(id_tache);
 
     query.prepare("update taches set task= :task, etat= :etat where id_tache= :id_tache" );
-
     query.bindValue(":id_tache",id);
     query.bindValue(":etat",etat);
     query.bindValue(":task",task);
@@ -78,13 +74,13 @@ bool ToDoList::modifier(int id_tache)
 
 int ToDoList::nbr_tache(QString etat)
 {
-QSqlQuery query;
+     QSqlQuery query;
      query.prepare("SELECT * FROM TACHES where etat= :etat");
      query.bindValue(":etat", etat);
      query.exec();
 
      int total = 0;
-      while (query.next())
+     while (query.next())
       {
           total++;
       }
@@ -103,9 +99,18 @@ QString ToDoList::verification(QString id)
     return profile;
 }
 
+QSqlQueryModel * ToDoList::filtre(QString etat, QString id)
+{
+    QSqlQuery *qry= new QSqlQuery();
+    qry->prepare("SELECT * FROM TACHES WHERE etat= :etat and id_emp= :id_emp");
+    qry->bindValue(":etat",etat);
+    qry->bindValue(":id_emp",id);
+    qry->exec();
+
+    QSqlQueryModel *model = new QSqlQueryModel();
+    model->setQuery(*qry);
+
+    return model;
+}
 
 
-/*
-  select * from employe e, taches t where e.id_emp=t.id_emp and e.id_emp='154ADF'
-  insert into taches (task, etat, id_emp,id_tache) VALUES('mathhhh','faite','154ADF','8')
-*/

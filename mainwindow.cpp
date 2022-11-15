@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->groupBox_3->hide();
     ui->groupBox->hide();
+    ui->gb_delet->hide();
 }
 
 MainWindow::~MainWindow()
@@ -300,18 +301,20 @@ void MainWindow::on_pb_afficherTache_clicked()
 
     if(id!="")
     {
-
        QString profile=Tmp.verification(id);
        ui->le_profileEmp->setText(profile);
+
        if (profile == "Directeur")
        {
             ui->groupBox_3->show();
             ui->groupBox->show();
+            ui->gb_delet->show();
        }
        else
        {
            ui->groupBox_3->hide();
            ui->groupBox->hide();
+           ui->gb_delet->hide();
            QSqlQueryModel *tab_tache=Tmp.afficher(id);
            if (tab_tache!=nullptr)
            {
@@ -385,7 +388,6 @@ void MainWindow::on_pb_suppTache_clicked()
     QString id=ui->le_idEmp->text();
 
     bool test=Tmp.supprimer(id_tache);
-
     if(test)
     {
         //REFRECH
@@ -417,7 +419,6 @@ void MainWindow::on_pb_modifTache_clicked()
     if(valide)
     {
         ToDoList T(id_emp,task,etat);
-
         bool test=T.modifier(id);
         if(test)
         {
@@ -435,10 +436,8 @@ void MainWindow::on_pb_modifTache_clicked()
             QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
                         QObject::tr("EDIT NON effectué\n"
                                     "Click Cancel to exit."), QMessageBox::Cancel);
-
         }
 }
-
 
 void MainWindow::on_pb_stat_clicked()
 {
@@ -448,18 +447,15 @@ void MainWindow::on_pb_stat_clicked()
     s->show();
 }
 
-
-
-void MainWindow::on_pb_stat_2_clicked()
+void MainWindow::on_pb_stat_2_clicked()       /******************** CHATBOX EMPLOYE ***************************/
 {
     MyChat_employe *chat;
     chat = new MyChat_employe();
-
     chat->setFixedSize(680,500);
     chat->show();
 }
 
-void MainWindow::on_pb_pdf_clicked()
+void MainWindow::on_pb_pdf_clicked()         /********************* PDF **************************************/
 {
     QString strStream;
     QTextStream out(&strStream);
@@ -498,8 +494,6 @@ void MainWindow::on_pb_pdf_clicked()
                            "</body>\n"
                            "</html>\n";
 
-
-
         QTextDocument *document = new QTextDocument();
         document->setHtml(strStream);
 
@@ -524,4 +518,31 @@ void MainWindow::on_pb_refresh_2_clicked()
     ui->etat_tache->setCurrentText("A FAIRE");
     ui->groupBox_3->hide();
     ui->groupBox->hide();
+}
+
+void MainWindow::on_pb_fitre_clicked()
+{
+    QString critere=ui->cb_etat->currentText();
+    QString profile=ui->le_profileEmp->text();
+    QString id=ui->le_id_2->text();
+
+    if (profile == "Directeur")
+    {
+        QString id=ui->le_idEmp->text();
+    }
+
+    ui->tab_tache->setModel(Tmp.afficher(id));
+
+    if (critere=="A FAIRE")
+        ui->tab_tache->setModel(Tmp.filtre("A FAIRE",id));
+    else
+    {
+        if (critere=="EN COURS")
+        ui->tab_tache->setModel(Tmp.filtre("EN COURS",id));
+        else
+        {
+            if (critere=="FAIT")
+            ui->tab_tache->setModel(Tmp.filtre("FAIT",id));
+        }
+    }
 }

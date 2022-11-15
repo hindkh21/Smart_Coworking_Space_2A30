@@ -20,6 +20,8 @@ public:
     QSqlQuery select(QString);
     QString verification(QString);
     int nbr_tache(QString);
+
+    QSqlQueryModel * filtre(QString,QString);
 };
 
 #endif // TODOLIST_H
