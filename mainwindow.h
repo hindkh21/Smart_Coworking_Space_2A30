@@ -8,6 +8,9 @@
 #include <QFileInfo>
 #include <QDebug>
 #include <QPushButton>
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
+#include "arduino.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -57,5 +60,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Espaces ES;
+    QByteArray data;
+    Arduino A;
 };
 #endif // MAINWINDOW_H

@@ -36,7 +36,7 @@
 color: rgb(170, 0, 127);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <property name="styleSheet">
@@ -738,8 +738,8 @@ color: rgb(170, 0, 127);</string>
      <widget class="QCustomPlot" name="customplot" native="true">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>40</y>
+        <x>20</x>
+        <y>30</y>
         <width>691</width>
         <height>351</height>
        </rect>

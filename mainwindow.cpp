@@ -14,13 +14,22 @@
 #include <QPrintDialog>
 #include <QPixmap>
 #include <QPdfWriter>
-
+#include "arduino.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case (0): qDebug()<< "arduino is available and connected to : " << A.getarduino_port_name ();
+    break;
+    case (1):qDebug() << "arduino is available but not connected to :" << A.getarduino_port_name();
+    break;
+    case (-1):qDebug() << "arduino is not available"; }
+    QObject::connect(A.getserial(),SIGNAL(readyRead()),this, SLOT(update_label ())); // permet de lancer //le slot update_label suite à la reception du signal readyRead (reception des données).
 
     //ui->stackedWidget->setCurrentIndex(0);
     m_BotD = 1.0;
@@ -56,6 +65,7 @@ MainWindow::MainWindow(QWidget *parent)
      gradient.setColorAt(0.38, QColor(105, 105, 105));
      gradient.setColorAt(1, QColor(70, 70, 70));
      ui->customplot->setBackground(QBrush(gradient));
+
 
      // create empty bar chart objects:
      QCPBars *nombre = new QCPBars(ui->customplot->xAxis, ui->customplot->yAxis);
@@ -278,10 +288,10 @@ void MainWindow::on_PDF_pb_clicked()
 
                          int i = 2500;
 
-
-                         painter.drawText(4000,1000,"LISTE DES ESPACES");
                          painter.setPen(Qt::red);
-                         painter.setFont(QFont("Arial", 300));
+                         painter.setFont(QFont("Arial",15));
+                         painter.drawText(4000,1000,"LISTE DES ESPACES");
+
                          painter.drawRect(0,1700,9600,500);
                          painter.setPen(Qt::black);
                          painter.setFont(QFont("Arial", 9));
@@ -490,6 +500,7 @@ void MainWindow::on_Facture_pb_clicked()
     QSqlQuery qry;
     qry=ES.select(cher);
     QString opt;
+    QString p;
     float f=calculer();
     QString b = QString::number(f);
     QPdfWriter pdf("C:/Users/abdel/OneDrive/Documents/Gestion_Espaces/Facture.pdf");
@@ -514,41 +525,89 @@ void MainWindow::on_Facture_pb_clicked()
 
 
                              if(ui->checkBox->isChecked())
+                                {
                                  opt="ecran de projection";
+                                 p="10dt";
+                                }
                              if(ui->checkBox_2->isChecked())
+                             {
                                  opt="systeme de visioconference";
+                                 p="20dt";
+                                }
                              if(ui->checkBox_3->isChecked())
+                             {
                                  opt="tableau";
+                                 p="5dt";
+                                }
                              if(ui->checkBox_4->isChecked())
+                             {
                                  opt="flip chart";
+                                 p="5dt";
+                                }
                              if(ui->checkBox_5->isChecked())
+                             {
                                  opt="video projecteur";
+                                 p="10dt";
+                                }
                              if(ui->checkBox->isChecked() && ui->checkBox_2->isChecked())
+                             {
                                  opt="ecran de projection & systeme de visioconference\n";
+                                 p="10dt + 20dt";
+                                }
                              if(ui->checkBox->isChecked() && ui->checkBox_3->isChecked())
+                             {
                                  opt="ecran de projection & tableau";
+                                 p="10dt + 5dt";
+                                }
                              if(ui->checkBox->isChecked() && ui->checkBox_4->isChecked())
+                             {
                                  opt="ecran de projection & flip chart";
+                                 p="10dt + 5dt";
+                                }
                              if(ui->checkBox->isChecked() && ui->checkBox_5->isChecked())
+                             {
                                  opt="ecran de projection & video projecteur";
+                                 p="10dt + 10dt";
+                                }
 
                              if(ui->checkBox_2->isChecked() && ui->checkBox_3->isChecked())
+                             {
                                  opt="tableau & systeme de visioconference\n";
+                                 p="5dt + 20dt";
+                                }
                              if(ui->checkBox_2->isChecked() && ui->checkBox_4->isChecked())
+                             {
                                  opt="systeme de visioconference & flip chart";
+                                 p="20dt + 5dt";
+                                }
                              if(ui->checkBox_2->isChecked() && ui->checkBox_5->isChecked())
+                             {
                                  opt="systeme de visioconference & video projecteur";
+                                 p="20dt + 10dt";
+                                }
 
                              if(ui->checkBox_3->isChecked() && ui->checkBox_4->isChecked())
+                             {
                                  opt="tableau & flip chart\n";
+                                 p="5dt + 5dt";
+                                }
                              if(ui->checkBox_3->isChecked() && ui->checkBox_5->isChecked())
+                             {
                                  opt="tableau & video projecteur";
+                                 p="5dt + 10dt";
+                                }
 
                              if(ui->checkBox_4->isChecked() && ui->checkBox_5->isChecked())
+                             {
                                  opt="flip chart & video projecteur";
+                                 p="5dt + 10dt";
+                                }
 
                              if(ui->checkBox_4->isChecked() && ui->checkBox_5->isChecked() && ui->checkBox->isChecked())
+                             {
                                  opt="flip chart & video projecteur & ecran de projection";
+                                 p="5dt + 10dt + 10dt";
+                                }
 
 
 
@@ -562,6 +621,7 @@ void MainWindow::on_Facture_pb_clicked()
                              }
 
                              painter.drawText(3800,i,opt);
+                             painter.drawText(4300,i+200,p);
                              painter.drawText(9000,i,b);
 
 
