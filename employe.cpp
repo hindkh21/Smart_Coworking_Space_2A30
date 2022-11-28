@@ -163,3 +163,6 @@ QSqlQueryModel * Employe::trier_nom()  //ASC
 
 
 
+
+
+

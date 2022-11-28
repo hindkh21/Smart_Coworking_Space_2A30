@@ -22,6 +22,36 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->groupBox_3->hide();
     ui->groupBox->hide();
     ui->gb_delet->hide();
+
+    /******************************ARDUINO********************************/
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+     //le slot update_label suite à la reception du signal readyRead (reception des données).
+}
+
+void MainWindow::on_pb_arduino_clicked()
+{
+    QString id = ui->le_Arduino->text();
+
+    QString msg= A.select(id);
+    ui->pointage->setText(msg);
+
+    if (msg=="")
+        msg="---TRY AGAIN!---";
+
+    for (int i=0; i < msg.length(); i++)
+      {
+        QString c = msg.at(i);
+        QByteArray m= c.toUtf8();
+        A.write_to_arduino(m);
+      }
 }
 
 MainWindow::~MainWindow()
@@ -546,3 +576,4 @@ void MainWindow::on_pb_fitre_clicked()
         }
     }
 }
+

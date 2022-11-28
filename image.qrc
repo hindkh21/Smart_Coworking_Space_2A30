@@ -1,8 +1,9 @@
 <RCC>
-    <qresource prefix="/image">
+    <qresource prefix="/">
         <file>image/add_tache.png</file>
         <file>image/afficher.png</file>
         <file>image/ajouter.png</file>
+        <file>image/arduino.png</file>
         <file>image/chat1.png</file>
         <file>image/chatbox.png</file>
         <file>image/chatClient.png</file>

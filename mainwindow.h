@@ -5,8 +5,10 @@
 #include "employe.h"
 #include "todolist.h"
 #include "statistiques.h"
+#include "arduino.h"
 
-namespace Ui {
+namespace Ui
+{
 class MainWindow;
 }
 
@@ -33,16 +35,18 @@ private slots:
     void on_pb_stat_2_clicked();
     void on_pb_pdf_clicked();
     void on_pb_afficherDrct_clicked();
-
     void on_pb_refresh_2_clicked();
-
     void on_pb_fitre_clicked();
+
+    void on_pb_arduino_clicked();
 
 private:
     Ui::MainWindow *ui;
     Employe Etmp;
     ToDoList Tmp;
     statistiques *s;
+    QByteArray data;
+    Arduino A;
 };
 
 #endif // MAINWINDOW_H

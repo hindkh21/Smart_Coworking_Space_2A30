@@ -41,7 +41,6 @@ public:
     QSqlQueryModel * trier_prenom();
     QSqlQueryModel * trier_salaire();
 
-
 };
 
 #endif // EMPLOYE_H

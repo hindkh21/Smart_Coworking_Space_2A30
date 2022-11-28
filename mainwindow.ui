@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>1641</width>
-      <height>821</height>
+      <width>1631</width>
+      <height>811</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -28,7 +28,7 @@
 font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -65,7 +65,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="image.qrc">
+        <iconset resource="images.qrc">
          <normaloff>:/image/image/ajouter.png</normaloff>:/image/image/ajouter.png</iconset>
        </property>
        <property name="iconSize">
@@ -88,7 +88,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="image.qrc">
+        <iconset resource="images.qrc">
          <normaloff>:/image/image/delet.png</normaloff>:/image/image/delet.png</iconset>
        </property>
        <property name="iconSize">
@@ -111,7 +111,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="image.qrc">
+        <iconset resource="images.qrc">
          <normaloff>:/image/image/edit.png</normaloff>:/image/image/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -331,7 +331,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="image.qrc">
+       <iconset resource="images.qrc">
         <normaloff>:/image/image/recherche.png</normaloff>:/image/image/recherche.png</iconset>
       </property>
       <property name="iconSize">
@@ -364,7 +364,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="image.qrc">
+       <iconset resource="images.qrc">
         <normaloff>:/image/image/trie.png</normaloff>:/image/image/trie.png</iconset>
       </property>
       <property name="iconSize">
@@ -412,7 +412,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="image.qrc">
+       <iconset resource="images.qrc">
         <normaloff>:/image/image/statistic.png</normaloff>:/image/image/statistic.png</iconset>
       </property>
       <property name="iconSize">
@@ -435,7 +435,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="image.qrc">
+       <iconset resource="images.qrc">
         <normaloff>:/image/image/refresh.png</normaloff>:/image/image/refresh.png</iconset>
       </property>
       <property name="iconSize">
@@ -458,7 +458,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="image.qrc">
+       <iconset resource="images.qrc">
         <normaloff>:/image/image/chatbox.png</normaloff>:/image/image/chatbox.png</iconset>
       </property>
       <property name="iconSize">
@@ -481,7 +481,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="image.qrc">
+       <iconset resource="images.qrc">
         <normaloff>:/image/image/pdf.png</normaloff>:/image/image/pdf.png</iconset>
       </property>
       <property name="iconSize">
@@ -537,7 +537,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="image.qrc">
+        <iconset resource="images.qrc">
          <normaloff>:/image/image/ajouter.png</normaloff>:/image/image/ajouter.png</iconset>
        </property>
        <property name="iconSize">
@@ -601,7 +601,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="image.qrc">
+        <iconset resource="images.qrc">
          <normaloff>:/image/image/edit.png</normaloff>:/image/image/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -637,7 +637,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="image.qrc">
+        <iconset resource="images.qrc">
          <normaloff>:/image/image/afficher.png</normaloff>:/image/image/afficher.png</iconset>
        </property>
        <property name="iconSize">
@@ -684,7 +684,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="image.qrc">
+       <iconset resource="images.qrc">
         <normaloff>:/image/image/refresh.png</normaloff>:/image/image/refresh.png</iconset>
       </property>
       <property name="iconSize">
@@ -717,7 +717,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="image.qrc">
+       <iconset resource="images.qrc">
         <normaloff>:/image/image/valider.png</normaloff>:/image/image/valider.png</iconset>
       </property>
       <property name="iconSize">
@@ -763,7 +763,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="image.qrc">
+       <iconset resource="images.qrc">
         <normaloff>:/image/image/toDoList.png</normaloff>:/image/image/toDoList.png</iconset>
       </property>
       <property name="iconSize">
@@ -786,7 +786,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="image.qrc">
+       <iconset resource="images.qrc">
         <normaloff>:/image/image/profile.png</normaloff>:/image/image/profile.png</iconset>
       </property>
       <property name="iconSize">
@@ -821,7 +821,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="image.qrc">
+        <iconset resource="images.qrc">
          <normaloff>:/image/image/delet.png</normaloff>:/image/image/delet.png</iconset>
        </property>
        <property name="iconSize">
@@ -892,6 +892,67 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Arduino</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>160</y>
+        <width>401</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pointage</string>
+      </property>
+      <widget class="QPushButton" name="pb_arduino">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>100</y>
+         <width>101</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/image/image/arduino.png</normaloff>:/image/image/arduino.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>125</width>
+         <height>125</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="le_Arduino">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>130</y>
+         <width>211</width>
+         <height>41</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLineEdit" name="pointage">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>500</y>
+        <width>211</width>
+        <height>41</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -907,7 +968,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="image.qrc"/>
+  <include location="images.qrc"/>
  </resources>
  <connections/>
 </ui>

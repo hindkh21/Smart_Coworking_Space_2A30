@@ -2,8 +2,8 @@ QT       += core gui sql
 QT       += network
 QT       += printsupport
 QT       += charts
-QT       +=multimedia
-QT       +=serialport
+QT       += multimedia
+QT       += serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
     chatemp.cpp \
     connection.cpp \
     employe.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
     todolist.cpp
 
 HEADERS += \
+    arduino.h \
     chatemp.h \
     connection.h \
     employe.h \
@@ -50,4 +52,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    image.qrc
+    images.qrc

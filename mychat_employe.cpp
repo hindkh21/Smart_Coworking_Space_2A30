@@ -198,21 +198,6 @@ void MyChat_employe::userLeft(const QString &username)
     m_lastUserName.clear();
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void MyChat_employe::error(QAbstractSocket::SocketError socketError)
 {
     // show a message to the user that informs of what kind of error occurred
