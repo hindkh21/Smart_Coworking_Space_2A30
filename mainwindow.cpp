@@ -15,7 +15,6 @@
 #include <QSaveFile>
 #include "smtp.h"
 
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -32,14 +31,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tabWidget->setGeometry(0,0,1500,1000);
     ui->paswd_2->setText("nuoqikogfnfeebao");
     chart();
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-
 
 void MainWindow::on_pushButton_3_clicked()//ajouter
 {
@@ -322,4 +328,52 @@ void MainWindow::on_pushButton_8_clicked()
     ui->lineEdit_email->setText(C.getemail());
     ui->lineEdit_numtel->setText(QString::number(C.getnumtel()));
     ui->comboBox->setCurrentText(C.gettype());
+}
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
+    qDebug() << data;
+    QSqlQuery query;
+
+    if(data=="1")
+          {
+
+            qDebug() << query.exec("select NOM_EMP from EMPLOYES where ID_CARD='83 6C DF 91'");
+        query.first();
+            ui->label_10->setText("Bonjour "+query.value(0).toString());// si les données reçues de arduino via la liaison série sont égales à 1
+
+            }
+    if(data=="2")
+    {
+        qDebug() << query.exec("select NOM_EMP from EMPLOYES where ID_CARD='13 74 5E A7'");
+        query.first();
+        ui->label_10->setText("Bonjour "+query.value(0).toString());// si les données reçues de arduino via la liaison série sont égales à 1
+    }
+    if(data=="0")
+        ui->label_10->setText("refusé");   // si les données reçues de arduino via la liaison série sont égales à 0
+
+}
+void MainWindow::on_pushButton_11_clicked()
+{
+
+    QSqlQuery query;
+    data=A.read_from_arduino();
+    QString idk=data;
+   /* //idk= idk.remove(' ');
+    qDebug()<<"data "<<idk;
+    int f=idk.toInt();
+    //QString ohr="83 6C DF 91";
+    query.exec("select * from EMPLOYES where ID_CARD='"+QString::number(f)+"'");
+    query.first();
+    qDebug()<< query.value(7).toString();
+    if(query.value(7).toString()==1)
+    {
+
+        qDebug()<< "Autorisé";
+        A.write_to_arduino("1");
+    }
+    else
+    A.write_to_arduino("0");
+    */
+
 }

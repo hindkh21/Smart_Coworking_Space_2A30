@@ -50,7 +50,7 @@ QSqlQueryModel * Client::afficher()
 
     return model;
 }
-QSqlQueryModel * Client::afficher1()
+QSqlQueryModel * Client::afficher1()//tri
 {
     QSqlQueryModel* model=new QSqlQueryModel();
     model->setQuery("SELECT * FROM CLIENT ORDER BY TYPE");
@@ -102,7 +102,7 @@ bool Client::modifier(int id )
           return query.exec();
 }
 
- QSqlQueryModel * Client::recherche(QString nom,QString prenom,QString type)
+ QSqlQueryModel * Client::recherche(QString nom,QString prenom,QString type)//recherche dynamique
 {
     QSqlQueryModel* model=new QSqlQueryModel();
     model->setQuery("SELECT * FROM CLIENT WHERE NOM_CL LIKE '%"+nom+"%' OR PRENOM_CL LIKE '%"+prenom+"%' OR TYPE LIKE '%"+type+"%'");
@@ -146,19 +146,15 @@ void Client::getDatabaseValue(int id)
     type=query.value(5).toString();
 
 }
-/*void Client::sendsms(int id)
+/*
+QSqlQuery Client::RechercheEmp(int id)
 {
     QSqlQuery query;
-    char msg[20];
-    char s[1000] ="curl.exe -X POST https://api.twilio.com/2010-04-01/Accounts/ACffc1dfa692390733c5eefae4834590f5/Messages.json ^"
-                  "--data-urlencode \"Body="+msg+"\" ^"
-                  "--data-urlencode \"From=+15732943693\" ^"
-                  "--data-urlencode \"To=+21692656967\" ^"
-                  "-u ACffc1dfa692390733c5eefae4834590f5:f4ce99e3c3e75101178d47b3571c09da";
-    query.prepare("SELECT * FROM RESERVATION WHERE ID_RES = '"+QString::number(id)+"'");
-    system(s);
+   QString Id = QString::number(id);
+    query.prepare("select * from EMPLOYES where ID_CARD=:id");
 
-
+    query.exec();
+    return   query;
 }
 */
 
