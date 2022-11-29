@@ -1,6 +1,6 @@
-#include "mainwindow.h"
 #include <QApplication>
 #include <QMessageBox>
+#include "mainwindow.h"
 #include "connection.h"
 
 int main(int argc, char *argv[])
@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     Connection c;
     bool test=c.createconnect();  //etablir la connexion
     MainWindow w;
+
 
     if(test)
     {

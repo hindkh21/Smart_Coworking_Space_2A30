@@ -1,52 +1,26 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include <QMainWindow>
-#include <QPrinter>
-#include "employe.h"
-#include "todolist.h"
-#include "statistiques.h"
-#include "arduino.h"
 
-namespace Ui
-{
-class MainWindow;
-}
+#include <QMainWindow>
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-private slots:
-    void on_pb_ajouter_clicked();
-    void on_pb_supprimer_clicked();
-    void on_pb_modifier_clicked();
-    void on_tab_emp_activated(const QModelIndex &index);
-    void on_pb_recherche_clicked();
-    void on_pb_refresh_clicked();
-    void on_pb_ajoutTache_clicked();
-    void on_pb_afficherTache_clicked();
-    void on_tab_tache_activated(const QModelIndex &index);
-    void on_pb_suppTache_clicked();
-    void on_pb_modifTache_clicked();
-    void on_pb_trierNom_clicked();
-    void on_pb_stat_clicked();
-    void on_pb_stat_2_clicked();
-    void on_pb_pdf_clicked();
-    void on_pb_afficherDrct_clicked();
-    void on_pb_refresh_2_clicked();
-    void on_pb_fitre_clicked();
 
-    void on_pb_arduino_clicked();
+public:
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+
+private slots:
+
+
+    void on_pb_emp_clicked();
 
 private:
     Ui::MainWindow *ui;
-    Employe Etmp;
-    ToDoList Tmp;
-    statistiques *s;
-    QByteArray data;
-    Arduino A;
 };
-
 #endif // MAINWINDOW_H
