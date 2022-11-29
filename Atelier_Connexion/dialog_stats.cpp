@@ -4,7 +4,7 @@
 #include "qcustomplot.h"
 #include "mainwindow.h"
 #include <QSqlQuery>
-
+//1
 Dialog_stats::Dialog_stats(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog_stats)

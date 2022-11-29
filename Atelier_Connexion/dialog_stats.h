@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include "QtPrintSupport"
-
+//6
 namespace Ui {
 class Dialog_stats;
 }

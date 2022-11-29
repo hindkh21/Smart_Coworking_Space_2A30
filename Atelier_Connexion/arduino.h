@@ -3,7 +3,7 @@
 #include<QtSerialPort/QSerialPort>
 #include<QtSerialPort/QSerialPortInfo>
 
-
+//8
 
 
 class arduino

@@ -14,7 +14,7 @@
 #include <QPushButton>
 #include "dialog_stats.h"
 #include "exportexcelobject.h"
-
+//1
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)

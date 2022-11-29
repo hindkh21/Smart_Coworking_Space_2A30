@@ -2,7 +2,7 @@
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QVariant>
-
+//1
 int ExportExcelObject::export2Excel()
 {
     if(fieldList.size() <= 0)

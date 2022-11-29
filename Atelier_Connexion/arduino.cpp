@@ -3,7 +3,7 @@
 #include "QSerialPort"
 #include "QMessageBox"
 
-
+//9
 arduino::arduino()
 {
     data="";
