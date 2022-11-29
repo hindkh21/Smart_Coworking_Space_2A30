@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gestionemploye.h"
+#include "gestionclient.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,5 +20,11 @@ void MainWindow::on_pb_emp_clicked()
     GestionEmploye *Emp;
     Emp = new GestionEmploye();
     Emp->show();
+}
 
+void MainWindow::on_pb_client_clicked()
+{
+    gestionClient *Cl;
+    Cl = new gestionClient();
+    Cl->show();
 }

@@ -23,27 +23,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     arduinoEmp.cpp \
     chatemp.cpp \
+    client.cpp \
     connection.cpp \
     employe.cpp \
+    gestionclient.cpp \
     gestionemploye.cpp \
     main.cpp \
     mainwindow.cpp \
     mychat_employe.cpp \
+    smtp.cpp \
     statemp.cpp \
     todolist.cpp
 
 HEADERS += \
     arduinoEmp.h \
     chatemp.h \
+    client.h \
     connection.h \
     employe.h \
+    gestionclient.h \
     gestionemploye.h \
     mainwindow.h \
     mychat_employe.h \
+    smtp.h \
     statemp.h \
     todolist.h
 
 FORMS += \
+    gestionclient.ui \
     gestionemploye.ui \
     mainwindow.ui \
     mychat_employe.ui \
