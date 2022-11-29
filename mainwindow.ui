@@ -49,8 +49,8 @@ color: rgb(85, 0, 0);</string>
     <widget class="QPushButton" name="pb_emp">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>140</y>
+       <x>90</x>
+       <y>130</y>
        <width>161</width>
        <height>151</height>
       </rect>
@@ -59,7 +59,13 @@ color: rgb(85, 0, 0);</string>
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">background-color: rgb(170, 170, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     font: bold 14px;
+     padding: 6px;</string>
      </property>
      <property name="text">
       <string>Gestion Employe</string>
@@ -74,6 +80,15 @@ color: rgb(85, 0, 0);</string>
        <height>151</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 170, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     font: bold 14px;
+     padding: 6px;</string>
+     </property>
      <property name="text">
       <string>Abonnement </string>
      </property>
@@ -87,6 +102,15 @@ color: rgb(85, 0, 0);</string>
        <height>151</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 170, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     font: bold 14px;
+     padding: 6px;</string>
+     </property>
      <property name="text">
       <string>Réservation </string>
      </property>
@@ -94,11 +118,20 @@ color: rgb(85, 0, 0);</string>
     <widget class="QPushButton" name="pb_espace">
      <property name="geometry">
       <rect>
-       <x>500</x>
-       <y>140</y>
+       <x>490</x>
+       <y>130</y>
        <width>161</width>
        <height>151</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 170, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     font: bold 14px;
+     padding: 6px;</string>
      </property>
      <property name="text">
       <string>Gestion Espace </string>
@@ -107,11 +140,21 @@ color: rgb(85, 0, 0);</string>
     <widget class="QPushButton" name="pb_client">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>140</y>
+       <x>290</x>
+       <y>130</y>
        <width>161</width>
        <height>151</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 170, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     font: bold 14px;
+     padding: 6px;
+</string>
      </property>
      <property name="text">
       <string>Gestion Client</string>
