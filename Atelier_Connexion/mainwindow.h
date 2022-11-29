@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include "abonnement.h"
 #include <QStandardItemModel>
+#include "arduino.h"
 
 #include <QMainWindow>
 
@@ -88,10 +89,16 @@ private slots:
     void on_checkBox_3_stateChanged(int arg1);
 
     void on_checkBox_3_clicked();
+    void update_label();
+    void on_AJOUTER_5_clicked();
+
+    void on_retouroublier_3_clicked();
 
 private:
     Ui::MainWindow *ui;
     abonnement f;
+    QByteArray data;
+    arduino a;
 
 };
 

@@ -24,6 +24,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(0);
     ui->id_a->setValidator(new QIntValidator(00000001,99999999,this));
     ui->id_s->setValidator(new QIntValidator(00000001,99999999,this));
+    int ret=a.connect_arduino();
+    switch(ret){
+    case(0):qDebug()<<"arduino is available and connected to :"<<a.getarduino_port_name();
+    break;
+    case(1):qDebug()<<"arduino is available but not connected to :"<<a.getarduino_port_name();
+    break;
+    case(-1):qDebug()<<"arduino is not available";
+    }
+    QObject::connect(a.getserial(),SIGNAL(readyRead()),this,SLOT(update_label() ));
+
 }
 
 MainWindow::~MainWindow()
@@ -360,4 +370,32 @@ void MainWindow::on_checkBox_3_clicked()
         ui->new_2->setEchoMode(QLineEdit::Password);
         mode=1;
     }
+}
+
+void MainWindow::on_supp_7_clicked()
+{
+    a.write_to_arduino("1");
+}
+void MainWindow::update_label()
+{
+    data = a.read_from_arduino();
+    if(data=="1"){
+    ui->label_3->setText("MOUVEMENT DETECTEE");
+    ui->label_4->setText("ON");
+
+    }
+    else if(data=="0"){
+        ui->label_3->setText("PAS DE MOUVEMENT");
+        ui->label_4->setText("OFF");}
+    qDebug()<<"data"<<data;
+}
+
+void MainWindow::on_AJOUTER_5_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+void MainWindow::on_retouroublier_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
 }

@@ -6,7 +6,7 @@
 
 QT       += core gui sql printsupport
 
-
+QT +=serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Atelier_Connexion
@@ -27,6 +27,7 @@ CONFIG += c++11
 
 SOURCES += \
     abonnement.cpp \
+    arduino.cpp \
     dialog_stats.cpp \
     exportexcelobject.cpp \
     login.cpp \
@@ -37,6 +38,7 @@ SOURCES += \
 
 HEADERS += \
     abonnement.h \
+    arduino.h \
     dialog_stats.h \
     exportexcelobject.h \
     login.h \
