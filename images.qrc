@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>image/add_tache.png</file>
+        <file>image/afficher.png</file>
+        <file>image/ajouter.png</file>
+        <file>image/arduino.png</file>
+        <file>image/chat1.png</file>
+        <file>image/chatbox.png</file>
+        <file>image/chatClient.png</file>
+        <file>image/delet.png</file>
+        <file>image/edit.png</file>
+        <file>image/pdf.png</file>
+        <file>image/profile.png</file>
+        <file>image/recherche.png</file>
+        <file>image/refresh.png</file>
+        <file>image/statistic.png</file>
+        <file>image/toDoList.png</file>
+        <file>image/trie.png</file>
+        <file>image/valider.png</file>
+        <file>image/view.png</file>
+    </qresource>
+</RCC>
