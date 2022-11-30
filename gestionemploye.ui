@@ -65,7 +65,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="images.qrc">
+        <iconset>
          <normaloff>:/image/image/ajouter.png</normaloff>:/image/image/ajouter.png</iconset>
        </property>
        <property name="iconSize">
@@ -88,7 +88,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="images.qrc">
+        <iconset>
          <normaloff>:/image/image/delet.png</normaloff>:/image/image/delet.png</iconset>
        </property>
        <property name="iconSize">
@@ -111,7 +111,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="images.qrc">
+        <iconset>
          <normaloff>:/image/image/edit.png</normaloff>:/image/image/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -331,7 +331,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="images.qrc">
+       <iconset>
         <normaloff>:/image/image/recherche.png</normaloff>:/image/image/recherche.png</iconset>
       </property>
       <property name="iconSize">
@@ -364,7 +364,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="images.qrc">
+       <iconset>
         <normaloff>:/image/image/trie.png</normaloff>:/image/image/trie.png</iconset>
       </property>
       <property name="iconSize">
@@ -412,7 +412,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="images.qrc">
+       <iconset>
         <normaloff>:/image/image/refresh.png</normaloff>:/image/image/refresh.png</iconset>
       </property>
       <property name="iconSize">
@@ -435,7 +435,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="images.qrc">
+       <iconset>
         <normaloff>:/image/image/chatbox.png</normaloff>:/image/image/chatbox.png</iconset>
       </property>
       <property name="iconSize">
@@ -458,7 +458,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="images.qrc">
+       <iconset>
         <normaloff>:/image/image/pdf.png</normaloff>:/image/image/pdf.png</iconset>
       </property>
       <property name="iconSize">
@@ -481,7 +481,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="images.qrc">
+       <iconset>
         <normaloff>:/image/image/statistic.png</normaloff>:/image/image/statistic.png</iconset>
       </property>
       <property name="iconSize">
@@ -537,7 +537,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="images.qrc">
+        <iconset>
          <normaloff>:/image/image/ajouter.png</normaloff>:/image/image/ajouter.png</iconset>
        </property>
        <property name="iconSize">
@@ -601,7 +601,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="images.qrc">
+        <iconset>
          <normaloff>:/image/image/edit.png</normaloff>:/image/image/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -637,7 +637,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="images.qrc">
+        <iconset>
          <normaloff>:/image/image/afficher.png</normaloff>:/image/image/afficher.png</iconset>
        </property>
        <property name="iconSize">
@@ -684,7 +684,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="images.qrc">
+       <iconset>
         <normaloff>:/image/image/refresh.png</normaloff>:/image/image/refresh.png</iconset>
       </property>
       <property name="iconSize">
@@ -717,7 +717,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="images.qrc">
+       <iconset>
         <normaloff>:/image/image/valider.png</normaloff>:/image/image/valider.png</iconset>
       </property>
       <property name="iconSize">
@@ -763,7 +763,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="images.qrc">
+       <iconset>
         <normaloff>:/image/image/toDoList.png</normaloff>:/image/image/toDoList.png</iconset>
       </property>
       <property name="iconSize">
@@ -786,7 +786,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="images.qrc">
+       <iconset>
         <normaloff>:/image/image/profile.png</normaloff>:/image/image/profile.png</iconset>
       </property>
       <property name="iconSize">
@@ -821,7 +821,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="images.qrc">
+        <iconset>
          <normaloff>:/image/image/delet.png</normaloff>:/image/image/delet.png</iconset>
        </property>
        <property name="iconSize">
@@ -921,7 +921,7 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="images.qrc">
+        <iconset>
          <normaloff>:/image/image/arduino.png</normaloff>:/image/image/arduino.png</iconset>
        </property>
        <property name="iconSize">
@@ -961,14 +961,12 @@ font: 9pt &quot;MS Shell Dlg 2&quot;;</string>
      <x>0</x>
      <y>0</y>
      <width>1684</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

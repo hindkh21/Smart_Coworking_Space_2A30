@@ -22,6 +22,8 @@ private slots:
 
     void on_pb_client_clicked();
 
+    void on_pb_espace_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

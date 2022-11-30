@@ -4,6 +4,7 @@ QT       += printsupport
 QT       += charts
 QT       += multimedia
 QT       += serialport
+QT       +=sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,11 +27,15 @@ SOURCES += \
     client.cpp \
     connection.cpp \
     employe.cpp \
+    espaces.cpp \
+    exportexcelobject.cpp \
     gestionclient.cpp \
     gestionemploye.cpp \
+    gestionespace.cpp \
     main.cpp \
     mainwindow.cpp \
     mychat_employe.cpp \
+    qcustomplot.cpp \
     smtp.cpp \
     statemp.cpp \
     todolist.cpp
@@ -41,10 +46,14 @@ HEADERS += \
     client.h \
     connection.h \
     employe.h \
+    espaces.h \
+    exportexcelobject.h \
     gestionclient.h \
     gestionemploye.h \
+    gestionespace.h \
     mainwindow.h \
     mychat_employe.h \
+    qcustomplot.h \
     smtp.h \
     statemp.h \
     todolist.h
@@ -52,6 +61,7 @@ HEADERS += \
 FORMS += \
     gestionclient.ui \
     gestionemploye.ui \
+    gestionespace.ui \
     mainwindow.ui \
     mychat_employe.ui \
     statemp.ui
