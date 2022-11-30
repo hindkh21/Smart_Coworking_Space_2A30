@@ -46,8 +46,6 @@ private slots:
 
     QString on_upload_pb_clicked();
 
-    void on_pushButton_2_clicked();
-
 
     void on_Descr_pb_clicked();
 
@@ -57,10 +55,16 @@ private slots:
 
     void on_Excel_pb_clicked();
 
+    void update_label(); //slot permettant la màj de l etat de ... , il est lancé a chaque reception dun msg de arduino
+
+    void on_tableView_espace_activated(const QModelIndex &index);
+
+    void m_a_j_stat();
+
 private:
     Ui::MainWindow *ui;
     Espaces ES;
-    QByteArray data;
-    Arduino A;
+    QByteArray data; //variable contenant les donnees recues
+    Arduino A; //objet temporaire
 };
 #endif // MAINWINDOW_H

@@ -14,7 +14,8 @@
 #include <QPrintDialog>
 #include <QPixmap>
 #include <QPdfWriter>
-#include "arduino.h"
+#include <QDesktopServices>
+#include <QPainter>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -22,131 +23,43 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    int ret=A.connect_arduino(); // lancer la connexion à arduino
-    switch(ret){
-    case (0): qDebug()<< "arduino is available and connected to : " << A.getarduino_port_name ();
-    break;
-    case (1):qDebug() << "arduino is available but not connected to :" << A.getarduino_port_name();
-    break;
-    case (-1):qDebug() << "arduino is not available"; }
-    QObject::connect(A.getserial(),SIGNAL(readyRead()),this, SLOT(update_label ())); // permet de lancer //le slot update_label suite à la reception du signal readyRead (reception des données).
-
     //ui->stackedWidget->setCurrentIndex(0);
     m_BotD = 1.0;
     m_TopD = 300.0;
 
     QDoubleValidator* SValid(new QDoubleValidator(m_BotD, m_TopD, 2, this));
-    ui->lineEdit_3->setValidator(SValid);
+    ui->le_tarif_espace->setValidator(SValid);
 
 
     QDoubleValidator* TValid(new QDoubleValidator(m_BotD, m_TopD, 2, this));
-    ui->lineEdit_4->setValidator(TValid);
+    ui->le_supr_espace->setValidator(TValid);
 
-    //float montant = ui->lineEdit_3->text().replace(",", ".", Qt::CaseSensitive).toFloat();
-    //float montant1 = ui->lineEdit_4->text().replace(",", ".", Qt::CaseSensitive).toFloat();
+    //float montant = ui->le_supr_espace->text().replace(",", ".", Qt::CaseSensitive).toFloat();
+    //float montant1 = ui->le_tarif_espace->text().replace(",", ".", Qt::CaseSensitive).toFloat();
 
-    ui->tableView->setModel(ES.afficher());
+    ui->tableView_espace->setModel(ES.afficher());
 
-    const int rowCount = ui->tableView->model()->rowCount();
+    const int rowCount = ui->tableView_espace->model()->rowCount();
      for (int row = 0; row < rowCount; row++)
      {
-         if (!ui->tableView->isColumnHidden(0)) {
-         ui->Modifier_cher->addItem(ui->tableView->model()->data(ui->tableView->model()->index(row, 0)).toString().simplified());
-         ui->select_esp->addItem(ui->tableView->model()->data(ui->tableView->model()->index(row, 0)).toString().simplified());
-         ui->ComboBox_Descr->addItem(ui->tableView->model()->data(ui->tableView->model()->index(row, 0)).toString().simplified());
+         if (!ui->tableView_espace->isColumnHidden(0)) {
+         ui->select_esp->addItem(ui->tableView_espace->model()->data(ui->tableView_espace->model()->index(row, 0)).toString().simplified());
+         ui->ComboBox_Descr->addItem(ui->tableView_espace->model()->data(ui->tableView_espace->model()->index(row, 0)).toString().simplified());
      }
      }
 
+     int ret=A.connect_arduino(); // lancer la connexion à arduino
+      switch(ret){
+      case (0): qDebug()<< "arduino is available and connected to : " << A.getarduino_port_name ();
+      break;
+      case (1):qDebug() << "arduino is available but not connected to :" << A.getarduino_port_name();
+      break;
+      case (-1):qDebug() << "arduino is not available"; }
+      QObject::connect(A.getserial(),SIGNAL(readyRead()),this, SLOT(update_label()));
 
+      //permet de lancer le slot update_label suite à la reception du signal readyRead (reception des données).
 
-     // set dark background gradient:
-     QLinearGradient gradient(0, 0, 0, 400);
-     gradient.setColorAt(0, QColor(90, 90, 90));
-     gradient.setColorAt(0.38, QColor(105, 105, 105));
-     gradient.setColorAt(1, QColor(70, 70, 70));
-     ui->customplot->setBackground(QBrush(gradient));
-
-
-     // create empty bar chart objects:
-     QCPBars *nombre = new QCPBars(ui->customplot->xAxis, ui->customplot->yAxis);
-     nombre->setAntialiased(false);
-     nombre->setStackingGap(1);
-
-     // set names and colors:
-     nombre->setName("Nombre d'espaces");
-     nombre->setPen(QPen(QColor(111, 9, 176).lighter(170)));
-     nombre->setBrush(QColor(111, 9, 176));
-
-     // prepare x axis with country labels:
-     QVector<double> ticks;
-     QVector<QString> labels;
-     ticks << 1 << 2 << 3 << 4;
-     labels << "Coworking space" << "Bureau privatif" << "Salle de reunion" << "Salle de conference";
-     QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
-     textTicker->addTicks(ticks, labels);
-     ui->customplot->xAxis->setTicker(textTicker);
-     ui->customplot->xAxis->setTickLabelRotation(60);
-     ui->customplot->xAxis->setSubTicks(false);
-     ui->customplot->xAxis->setTickLength(0, 4);
-     ui->customplot->xAxis->setRange(0,6);
-     ui->customplot->xAxis->setBasePen(QPen(Qt::white));
-     ui->customplot->xAxis->setTickPen(QPen(Qt::white));
-     ui->customplot->xAxis->grid()->setVisible(true);
-     ui->customplot->xAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
-     ui->customplot->xAxis->setTickLabelColor(Qt::white);
-     ui->customplot->xAxis->setLabelColor(Qt::white);
-
-     // prepare y axis:
-     ui->customplot->yAxis->setRange(0, 12.1);
-     ui->customplot->yAxis->setPadding(5); // a bit more space to the left border
-     ui->customplot->yAxis->setLabel("Le nombre d'espaces existants\n pour chaque catégorie");
-     ui->customplot->yAxis->setBasePen(QPen(Qt::white));
-     ui->customplot->yAxis->setTickPen(QPen(Qt::white));
-     ui->customplot->yAxis->setSubTickPen(QPen(Qt::white));
-     ui->customplot->yAxis->grid()->setSubGridVisible(true);
-     ui->customplot->yAxis->setTickLabelColor(Qt::white);
-     ui->customplot->yAxis->setLabelColor(Qt::white);
-     ui->customplot->yAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::SolidLine));
-     ui->customplot->yAxis->grid()->setSubGridPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
-
-     // Add data:
-     QVector<double> data;
-
-     int cs=0;
-     int sr=0;
-     int bp=0;
-     int sc=0;
-
-     const int ligne = ui->tableView->model()->rowCount();
-      for (int row = 0; row < ligne; row++)
-      {
-          if (!ui->tableView->isColumnHidden(1)) {
-
-          if(ui->tableView->model()->data(ui->tableView->model()->index(row, 1))=="Coworking Space")
-                cs++;
-          else if (ui->tableView->model()->data(ui->tableView->model()->index(row, 1))=="Bureau Privatif")
-              bp++;
-          else if (ui->tableView->model()->data(ui->tableView->model()->index(row, 1))=="Salle de Reunion")
-              sr++;
-          else if(ui->tableView->model()->data(ui->tableView->model()->index(row, 1))=="Salle de Conference")
-              sc++;
-      }
-      }
-
-
-     data  << cs << bp << sr << sc ;
-
-     nombre->setData(ticks, data);
-
-     // setup legend:
-     ui->customplot->legend->setVisible(true);
-     ui->customplot->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignTop|Qt::AlignHCenter);
-     ui->customplot->legend->setBrush(QColor(255, 255, 255, 100));
-     ui->customplot->legend->setBorderPen(Qt::NoPen);
-     QFont legendFont = font();
-     legendFont.setPointSize(10);
-     ui->customplot->legend->setFont(legendFont);
-     ui->customplot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+    m_a_j_stat();
 
 }
 
@@ -161,21 +74,21 @@ void MainWindow::on_ajouter_pb_clicked()
 {
     QString image=on_upload_pb_clicked();
     QString categorie;
-    QString ID_ES=ui->lineEdit->text();
-    if(ui->radioButton->isChecked())
+    QString ID_ES=ui->le_id_espace->text();
+    if(ui->radioButton_espace->isChecked())
         categorie="Coworking Space";
-    if(ui->radioButton_2->isChecked())
+    if(ui->radioButton_2_espace->isChecked())
         categorie="Bureau Privatif";
-    if(ui->radioButton_3->isChecked())
+    if(ui->radioButton_3_espace->isChecked())
         categorie="Salle de Reunion";
-    if(ui->radioButton_4->isChecked())
+    if(ui->radioButton_4_espace->isChecked())
         categorie="Salle de Conference";
-    QString description=ui->lineEdit_2->text();
-    float superficie=ui->lineEdit_3->text().toFloat();
+    QString description=ui->le_descr_espace->text();
+    float superficie=ui->le_supr_espace->text().toFloat();
 
-    float tarif=ui->lineEdit_4->text().toFloat();
-    int nb_places=ui->spinBox->value();
-    QString disponibilite=ui->comboBox->currentText();
+    float tarif=ui->le_tarif_espace->text().toFloat();
+    int nb_places=ui->spinBox_nbplaces->value();
+    QString disponibilite=ui->comboBox_espace->currentText();
 
 
     Espaces ES(ID_ES,categorie,description,nb_places,superficie,tarif,disponibilite,image);
@@ -183,7 +96,8 @@ void MainWindow::on_ajouter_pb_clicked()
     bool test=ES.ajouter();
     if(test)
     {
-        ui->tableView->setModel(ES.afficher());
+        ui->tableView_espace->setModel(ES.afficher());
+        m_a_j_stat();
         QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("ajout effectué\n" "Click cancel to exit\n"),QMessageBox::Cancel);
 
     }
@@ -196,11 +110,12 @@ void MainWindow::on_ajouter_pb_clicked()
 void MainWindow::on_supr_pb_clicked()
 {
     Espaces ES;
-    ES.setID(ui->lineEdit_8->text());
+    ES.setID(ui->le_id_espace->text());
     bool test=ES.supprimer(ES.getID());
     if(test)
     {
-        ui->tableView->setModel(ES.afficher());
+        ui->tableView_espace->setModel(ES.afficher());
+        m_a_j_stat();
         QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Suppression avec succes\n" "Click cancel to exit\n"),QMessageBox::Cancel);
 
     }
@@ -208,10 +123,9 @@ void MainWindow::on_supr_pb_clicked()
         QMessageBox::critical(nullptr,QObject::tr("NOT OK"),QObject::tr("Echec de suppression\n" "Click cancel to exit\n"),QMessageBox::Cancel);
 }
 
-
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_tableView_espace_activated(const QModelIndex &index)
 {
-    QString val=ui->Modifier_cher->currentText();
+    QString val=ui->tableView_espace->model()->data(index).toString();
     QSqlQuery qry;
     Espaces ES1;
     qry=ES1.select(val);
@@ -219,52 +133,52 @@ void MainWindow::on_pushButton_2_clicked()
     {
         while(qry.next())
         {
-            ui->lineEdit->setText(qry.value(0).toString());
-            if(qry.value(1)=="Salle de Reunion")
-               ui->radioButton->setChecked(true);
-            if(qry.value(1)=="Bureau Privatif")
-                ui->radioButton_2->setChecked(true);
+            ui->le_id_espace->setText(qry.value(0).toString());
             if(qry.value(1)=="Coworking Space")
-                ui->radioButton_3->setChecked(true);
+               ui->radioButton_espace->setChecked(true);
+            if(qry.value(1)=="Bureau Privatif")
+                ui->radioButton_2_espace->setChecked(true);
+            if(qry.value(1)=="Salle de Réunion")
+                ui->radioButton_3_espace->setChecked(true);
             if(qry.value(1)=="Salle de Conference")
-                ui->radioButton_4->setChecked(true);
-            ui->lineEdit_2->setText(qry.value(2).toString());
-            ui->lineEdit_3->setText(qry.value(4).toString());
-            ui->lineEdit_4->setText(qry.value(5).toString());
-            ui->spinBox->setValue(qry.value(3).toInt());
+                ui->radioButton_4_espace->setChecked(true);
+            ui->le_descr_espace->setText(qry.value(2).toString());
+            ui->le_supr_espace->setText(qry.value(4).toString());
+            ui->le_tarif_espace->setText(qry.value(5).toString());
+            ui->spinBox_nbplaces->setValue(qry.value(3).toInt());
             if(qry.value(6)=="Oui")
-                ui->comboBox->setEditText("Oui");
+                ui->comboBox_espace->setEditText("Oui");
             if(qry.value(6)=="Non")
-                ui->comboBox->setEditText("Non");
+                ui->comboBox_espace->setEditText("Non");
         }
     }
-
 }
 
 void MainWindow::on_modif_pb_clicked()
 {
     QString categorie;
-    QString ID_ES=ui->lineEdit->text();
-    if(ui->radioButton->isChecked())
+    QString ID_ES=ui->le_id_espace->text();
+    if(ui->radioButton_espace->isChecked())
         categorie="Coworking Space";
-    if(ui->radioButton_2->isChecked())
+    if(ui->radioButton_2_espace->isChecked())
         categorie="Bureau Privatif";
-    if(ui->radioButton_3->isChecked())
-        categorie="Salle de Reunion";
-    if(ui->radioButton_4->isChecked())
+    if(ui->radioButton_3_espace->isChecked())
+        categorie="Salle de Réunion";
+    if(ui->radioButton_4_espace->isChecked())
         categorie="Salle de Conference";
-    QString description=ui->lineEdit_2->text();
-    float superficie=ui->lineEdit_3->text().toFloat();
-    float tarif=ui->lineEdit_4->text().toFloat();
-    int nb_places=ui->spinBox->value();
-    QString disponibilite=ui->comboBox->currentText();
+    QString description=ui->le_descr_espace->text();
+    float superficie=ui->le_supr_espace->text().toFloat();
+    float tarif=ui->le_tarif_espace->text().toFloat();
+    int nb_places=ui->spinBox_nbplaces->value();
+    QString disponibilite=ui->comboBox_espace->currentText();
     QString image=on_upload_pb_clicked();;
 
     Espaces ES(ID_ES,categorie,description,nb_places,superficie,tarif,disponibilite,image);
     bool test=ES.modifier();
        if(test)
        {
-           ui->tableView->setModel(ES.afficher());
+           ui->tableView_espace->setModel(ES.afficher());
+           m_a_j_stat();
            QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Modification avec succes\n" "Click cancel to exit\n"),QMessageBox::Cancel);
        }
            else
@@ -276,7 +190,7 @@ void MainWindow::on_tri_pb_clicked()
 {
         Espaces ES;;
         ES.tri_espaces() ;
-        ui->tableView->setModel(ES.tri_espaces());
+        ui->tableView_espace->setModel(ES.tri_espaces());
 
 }
 
@@ -340,7 +254,7 @@ void MainWindow::on_chercher_pb_clicked()
 {
     Espaces ES ;
        QString cher =ui->chercher_line->text();
-       ui->tableView->setModel(ES.chercher(cher));
+       ui->tableView_espace->setModel(ES.chercher(cher));
 }
 
 
@@ -479,16 +393,16 @@ float MainWindow::calculer()
                fact+=qry.value(5).toFloat();
            }
        }
-    if(ui->checkBox->isChecked())
+    if(ui->checkBox_espace->isChecked())
         fact+=10;
-    if(ui->checkBox_2->isChecked())
+    if(ui->checkBox_2_espace->isChecked())
         fact+=20;
 
-    if(ui->checkBox_3->isChecked())
+    if(ui->checkBox_3_espace->isChecked())
         fact+=5;
-    if(ui->checkBox_4->isChecked())
+    if(ui->checkBox_4_espace->isChecked())
         fact+=5;
-    if(ui->checkBox_5->isChecked())
+    if(ui->checkBox_5_espace->isChecked())
         fact+=10;
   return fact;
 }
@@ -524,86 +438,86 @@ void MainWindow::on_Facture_pb_clicked()
 
 
 
-                             if(ui->checkBox->isChecked())
+                             if(ui->checkBox_espace->isChecked())
                                 {
                                  opt="ecran de projection";
                                  p="10dt";
                                 }
-                             if(ui->checkBox_2->isChecked())
+                             if(ui->checkBox_2_espace->isChecked())
                              {
                                  opt="systeme de visioconference";
                                  p="20dt";
                                 }
-                             if(ui->checkBox_3->isChecked())
+                             if(ui->checkBox_3_espace->isChecked())
                              {
                                  opt="tableau";
                                  p="5dt";
                                 }
-                             if(ui->checkBox_4->isChecked())
+                             if(ui->checkBox_4_espace->isChecked())
                              {
                                  opt="flip chart";
                                  p="5dt";
                                 }
-                             if(ui->checkBox_5->isChecked())
+                             if(ui->checkBox_5_espace->isChecked())
                              {
                                  opt="video projecteur";
                                  p="10dt";
                                 }
-                             if(ui->checkBox->isChecked() && ui->checkBox_2->isChecked())
+                             if(ui->checkBox_espace->isChecked() && ui->checkBox_2_espace->isChecked())
                              {
                                  opt="ecran de projection & systeme de visioconference\n";
                                  p="10dt + 20dt";
                                 }
-                             if(ui->checkBox->isChecked() && ui->checkBox_3->isChecked())
+                             if(ui->checkBox_espace->isChecked() && ui->checkBox_3_espace->isChecked())
                              {
                                  opt="ecran de projection & tableau";
                                  p="10dt + 5dt";
                                 }
-                             if(ui->checkBox->isChecked() && ui->checkBox_4->isChecked())
+                             if(ui->checkBox_espace->isChecked() && ui->checkBox_4_espace->isChecked())
                              {
                                  opt="ecran de projection & flip chart";
                                  p="10dt + 5dt";
                                 }
-                             if(ui->checkBox->isChecked() && ui->checkBox_5->isChecked())
+                             if(ui->checkBox_espace->isChecked() && ui->checkBox_5_espace->isChecked())
                              {
                                  opt="ecran de projection & video projecteur";
                                  p="10dt + 10dt";
                                 }
 
-                             if(ui->checkBox_2->isChecked() && ui->checkBox_3->isChecked())
+                             if(ui->checkBox_2_espace->isChecked() && ui->checkBox_3_espace->isChecked())
                              {
                                  opt="tableau & systeme de visioconference\n";
                                  p="5dt + 20dt";
                                 }
-                             if(ui->checkBox_2->isChecked() && ui->checkBox_4->isChecked())
+                             if(ui->checkBox_2_espace->isChecked() && ui->checkBox_4_espace->isChecked())
                              {
                                  opt="systeme de visioconference & flip chart";
                                  p="20dt + 5dt";
                                 }
-                             if(ui->checkBox_2->isChecked() && ui->checkBox_5->isChecked())
+                             if(ui->checkBox_2_espace->isChecked() && ui->checkBox_5_espace->isChecked())
                              {
                                  opt="systeme de visioconference & video projecteur";
                                  p="20dt + 10dt";
                                 }
 
-                             if(ui->checkBox_3->isChecked() && ui->checkBox_4->isChecked())
+                             if(ui->checkBox_3_espace->isChecked() && ui->checkBox_4_espace->isChecked())
                              {
                                  opt="tableau & flip chart\n";
                                  p="5dt + 5dt";
                                 }
-                             if(ui->checkBox_3->isChecked() && ui->checkBox_5->isChecked())
+                             if(ui->checkBox_3_espace->isChecked() && ui->checkBox_5_espace->isChecked())
                              {
                                  opt="tableau & video projecteur";
                                  p="5dt + 10dt";
                                 }
 
-                             if(ui->checkBox_4->isChecked() && ui->checkBox_5->isChecked())
+                             if(ui->checkBox_4_espace->isChecked() && ui->checkBox_5_espace->isChecked())
                              {
                                  opt="flip chart & video projecteur";
                                  p="5dt + 10dt";
                                 }
 
-                             if(ui->checkBox_4->isChecked() && ui->checkBox_5->isChecked() && ui->checkBox->isChecked())
+                             if(ui->checkBox_4_espace->isChecked() && ui->checkBox_5_espace->isChecked() && ui->checkBox_espace->isChecked())
                              {
                                  opt="flip chart & video projecteur & ecran de projection";
                                  p="5dt + 10dt + 10dt";
@@ -649,7 +563,7 @@ void MainWindow::on_Excel_pb_clicked()
                      if (fileName.isEmpty())
                          return;
 
-                     ExportExcelObject obj(fileName, "Espaces", ui->tableView);
+                     ExportExcelObject obj(fileName, "Espaces", ui->tableView_espace);
 
                      //colums to export
                      obj.addField(0, "ID_ES", "char(20)");
@@ -670,4 +584,117 @@ void MainWindow::on_Excel_pb_clicked()
                          QMessageBox::information(this, tr("Done"),
                                                   tr("Toutes les informations ont été enregistrée"));
                      }
+}
+
+void MainWindow::update_label()
+{
+   data=A.read_from_arduino();
+    if (data=="1111")
+    {
+      ui->le_doesntexist->setText("EXIST");
+      ui->le_lampe->setText("ON");
+      ui->le_buzzer->setText("ON");// si les données reçues de arduino via la liaison série sont égales à 1 alors afficher ON
+    }
+        else if (data=="0000")
+    {
+        ui->le_doesntexist->setText("DOESNT EXIST");
+        ui->le_lampe->setText("OFF");
+        ui->le_buzzer->setText("OFF");
+        // si les données reçues de arduino via la liaison série sont égales à o //alors afficher OF
+     }
+    qDebug()<<"data"<<data;
+
+}
+
+
+
+void MainWindow::m_a_j_stat()
+{
+    // set dark background gradient:
+    QLinearGradient gradient(0, 0, 0, 400);
+    gradient.setColorAt(0, QColor(90, 90, 90));
+    gradient.setColorAt(0.38, QColor(105, 105, 105));
+    gradient.setColorAt(1, QColor(70, 70, 70));
+    ui->customplot->setBackground(QBrush(gradient));
+
+
+    // create empty bar chart objects:
+    QCPBars *nombre = new QCPBars(ui->customplot->xAxis, ui->customplot->yAxis);
+    nombre->setAntialiased(false);
+    nombre->setStackingGap(1);
+
+    // set names and colors:
+    nombre->setName("Nombre d'espaces");
+    nombre->setPen(QPen(QColor(111, 9, 176).lighter(170)));
+    nombre->setBrush(QColor(111, 9, 176));
+
+    // prepare x axis with country labels:
+    QVector<double> ticks;
+    QVector<QString> labels;
+    ticks << 1 << 2 << 3 << 4;
+    labels << "Coworking space" << "Bureau privatif" << "Salle de reunion" << "Salle de conference";
+    QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+    textTicker->addTicks(ticks, labels);
+    ui->customplot->xAxis->setTicker(textTicker);
+    ui->customplot->xAxis->setTickLabelRotation(0);
+    ui->customplot->xAxis->setSubTicks(false);
+    ui->customplot->xAxis->setTickLength(0, 4);
+    ui->customplot->xAxis->setRange(0,6);
+    ui->customplot->xAxis->setBasePen(QPen(Qt::white));
+    ui->customplot->xAxis->setTickPen(QPen(Qt::white));
+    ui->customplot->xAxis->grid()->setVisible(true);
+    ui->customplot->xAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+    ui->customplot->xAxis->setTickLabelColor(Qt::white);
+    ui->customplot->xAxis->setLabelColor(Qt::white);
+
+    // prepare y axis:
+    ui->customplot->yAxis->setRange(0, 12.1);
+    ui->customplot->yAxis->setPadding(5); // a bit more space to the left border
+    ui->customplot->yAxis->setLabel("Le nombre d'espaces existants\n pour chaque catégorie");
+    ui->customplot->yAxis->setBasePen(QPen(Qt::white));
+    ui->customplot->yAxis->setTickPen(QPen(Qt::white));
+    ui->customplot->yAxis->setSubTickPen(QPen(Qt::white));
+    ui->customplot->yAxis->grid()->setSubGridVisible(true);
+    ui->customplot->yAxis->setTickLabelColor(Qt::white);
+    ui->customplot->yAxis->setLabelColor(Qt::white);
+    ui->customplot->yAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::SolidLine));
+    ui->customplot->yAxis->grid()->setSubGridPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+
+    // Add data:
+    QVector<double> data;
+
+    int cs=0;
+    int sr=0;
+    int bp=0;
+    int sc=0;
+    const int ligne = ui->tableView_espace->model()->rowCount();
+     for (int row = 0; row < ligne; row++)
+     {
+         if (!ui->tableView_espace->isColumnHidden(1)) {
+
+         if(ui->tableView_espace->model()->data(ui->tableView_espace->model()->index(row, 1))=="Coworking Space")
+               cs++;
+         else if (ui->tableView_espace->model()->data(ui->tableView_espace->model()->index(row, 1))=="Bureau Privatif")
+             bp++;
+         else if (ui->tableView_espace->model()->data(ui->tableView_espace->model()->index(row, 1))=="Salle de Reunion")
+             sr++;
+         else if(ui->tableView_espace->model()->data(ui->tableView_espace->model()->index(row, 1))=="Salle de Conference")
+             sc++;
+     }
+     }
+
+
+    data  << cs << bp << sr << sc ;
+
+    nombre->setData(ticks, data);
+
+    // setup legend:
+    ui->customplot->legend->setVisible(true);
+    ui->customplot->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignTop|Qt::AlignHCenter);
+    ui->customplot->legend->setBrush(QColor(255, 255, 255, 100));
+    ui->customplot->legend->setBorderPen(Qt::NoPen);
+    QFont legendFont = font();
+    legendFont.setPointSize(10);
+    ui->customplot->legend->setFont(legendFont);
+    ui->customplot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 }
