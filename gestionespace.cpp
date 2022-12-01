@@ -22,22 +22,19 @@ gestionEspace::gestionEspace(QWidget *parent) :
     ui(new Ui::gestionEspace)
 {
     ui->setupUi(this);
-    //ui->stackedWidget->setCurrentIndex(0);
+
+    //Controle de saisie pour le tarif et superficie(chiffres seulement)
     m_BotD = 1.0;
     m_TopD = 300.0;
-
     QDoubleValidator* SValid(new QDoubleValidator(m_BotD, m_TopD, 2, this));
     ui->le_tarif_espace->setValidator(SValid);
-
-
     QDoubleValidator* TValid(new QDoubleValidator(m_BotD, m_TopD, 2, this));
     ui->le_supr_espace->setValidator(TValid);
 
-    //float montant = ui->le_supr_espace->text().replace(",", ".", Qt::CaseSensitive).toFloat();
-    //float montant1 = ui->le_tarif_espace->text().replace(",", ".", Qt::CaseSensitive).toFloat();
-
+    //affichage du tableau
     ui->tableView_espace->setModel(ES.afficher());
 
+    //generer le contenu des combobox
     const int rowCount = ui->tableView_espace->model()->rowCount();
      for (int row = 0; row < rowCount; row++)
      {
@@ -47,18 +44,17 @@ gestionEspace::gestionEspace(QWidget *parent) :
      }
      }
 
-     int ret=A.connect_arduino(); // lancer la connexion à arduino
+     //Connexion arduino
+      int ret=A.connect_arduino(); // lancer la connexion à arduino
       switch(ret){
       case (0): qDebug()<< "arduino is available and connected to : " << A.getarduino_port_name ();
       break;
       case (1):qDebug() << "arduino is available but not connected to :" << A.getarduino_port_name();
       break;
       case (-1):qDebug() << "arduino is not available"; }
-      QObject::connect(A.getserial(),SIGNAL(readyRead()),this, SLOT(update_label()));
+      QObject::connect(A.getserial(),SIGNAL(readyRead()),this, SLOT(update_label())); //permet de lancer le slot update_label suite à la reception du signal readyRead (reception des données).
 
-      //permet de lancer le slot update_label suite à la reception du signal readyRead (reception des données).
-
-    m_a_j_stat();
+      m_a_j_stat(); //mise à jour des statistiques
 
 }
 
