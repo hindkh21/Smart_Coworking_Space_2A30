@@ -327,9 +327,8 @@ void gestionClient::on_pushButton_36_clicked(){
     ui->lineEdit_numtel_4->setText(QString::number(C.getnumtel()));
     ui->comboBox_4->setCurrentText(C.gettype());
 }
-void gestionClient::update_label()
+/*void gestionClient::update_label()
 {
-
 
     data=A.read_from_arduino();
     qDebug() << data;
@@ -350,9 +349,9 @@ void gestionClient::update_label()
         ui->label_40->setText("Bonjour "+query.value(0).toString());// si les données reçues de arduino via la liaison série sont égales à 1
     }
     if(data=="0")
-        ui->label_40->setText("refusé");   // si les données reçues de arduino via la liaison série sont égales à 0*/
+        ui->label_40->setText("refusé");   // si les données reçues de arduino via la liaison série sont égales à 0
 
-}
+}*/
 void gestionClient::on_pushButton_11_clicked()
 {
 

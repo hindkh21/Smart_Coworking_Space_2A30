@@ -42,15 +42,27 @@ GestionEmploye::~GestionEmploye()
     delete ui;
 }
 
-void GestionEmploye::on_pb_arduino_clicked()
+/*void GestionEmploye::update_label()
 {
-    QString id = ui->le_Arduino->text();
+    data=A.read_from_arduino();
+    qDebug() << data;
+    QSqlQuery query;
+    QString msg;
 
-    QString msg= A.select(id);
-    ui->pointage->setText(msg);
-
-    if (msg=="")
-        msg="---TRY AGAIN!---";
+    if(data=="1")
+     {
+        QString id="A3 B3 15 9B";
+         msg= A.select(id);
+         ui->label_40->setText(msg);
+      }
+    if(data=="2")
+    {
+       QString id = "C2 C7 BC 1B";
+        msg= A.select("13 74 5E A7");
+        ui->label_40->setText(msg);
+    }
+    if(data=="0")
+        ui->label_40->setText("refusé");
 
     for (int i=0; i < msg.length(); i++)
       {
@@ -58,7 +70,44 @@ void GestionEmploye::on_pb_arduino_clicked()
         QByteArray m= c.toUtf8();
         A.write_to_arduino(m);
       }
+}*/
+
+void GestionEmploye::update_label()
+{
+
+    data=A.read_from_arduino();
+    qDebug() << data;
+    QSqlQuery query;
+
+    if(data=="1")
+          {
+
+            qDebug() << query.exec("select NOM_EMP from EMPLOYE where ID_CARD='83 6C DF 91'");
+        query.first();
+            ui->label_40->setText("Bonjour "+query.value(0).toString());// si les données reçues de arduino via la liaison série sont égales à 1
+
+            }
+    if(data=="2")
+    {
+        qDebug() << query.exec("select NOM_EMP from EMPLOYE where ID_CARD='13 74 5E A7'");
+        query.first();
+        ui->label_40->setText("Bonjour "+query.value(0).toString());// si les données reçues de arduino via la liaison série sont égales à 1
+    }
+    if(data=="0")
+        ui->label_40->setText("refusé");   // si les données reçues de arduino via la liaison série sont égales à 0
+
+    QString msg= query.value(0).toString();
+    for (int i=0; i < msg.length(); i++)
+      {
+        QString c = msg.at(i);
+        QByteArray m= c.toUtf8();
+        A.write_to_arduino(m);
+      }
+
 }
+
+
+
 
 void GestionEmploye::on_pb_ajouter_clicked()
 {

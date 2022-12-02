@@ -67,7 +67,7 @@ QByteArray Arduino::read_from_arduino()
 QString Arduino::select(QString val)
 {
     QSqlQuery qry;
-    qry.prepare("SELECT nom_emp, prenom_emp FROM EMPLOYE WHERE id_emp=?");
+    qry.prepare("SELECT nom_emp, prenom_emp FROM EMPLOYE WHERE id_card=?");
     qry.addBindValue(val);
 
     QString msg="";

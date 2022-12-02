@@ -39,6 +39,7 @@ private slots:
     void on_pb_refresh_2_clicked();
     void on_pb_fitre_clicked();
     void on_pb_arduino_clicked();
+    void update_label();
 
 private:
     Ui::GestionEmploye *ui;
