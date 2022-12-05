@@ -22,16 +22,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    abonnement.cpp \
     arduinoEmp.cpp \
     chatemp.cpp \
     client.cpp \
     connection.cpp \
+    dialog_stats_abonnement.cpp \
     employe.cpp \
     espaces.cpp \
     exportexcelobject.cpp \
+    gestion_abonnement.cpp \
     gestionclient.cpp \
     gestionemploye.cpp \
     gestionespace.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp \
     mychat_employe.cpp \
@@ -41,16 +45,20 @@ SOURCES += \
     todolist.cpp
 
 HEADERS += \
+    abonnement.h \
     arduinoEmp.h \
     chatemp.h \
     client.h \
     connection.h \
+    dialog_stats_abonnement.h \
     employe.h \
     espaces.h \
     exportexcelobject.h \
+    gestion_abonnement.h \
     gestionclient.h \
     gestionemploye.h \
     gestionespace.h \
+    login.h \
     mainwindow.h \
     mychat_employe.h \
     qcustomplot.h \
@@ -59,6 +67,8 @@ HEADERS += \
     todolist.h
 
 FORMS += \
+    dialog_stats_abonnement.ui \
+    gestion_abonnement.ui \
     gestionclient.ui \
     gestionemploye.ui \
     gestionespace.ui \
