@@ -104,7 +104,7 @@ border-reduis:10px;
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="login">
      <widget class="QFrame" name="frame_6">
@@ -1232,7 +1232,7 @@ background-color: rgb(255, 255, 255);
      <x>0</x>
      <y>0</y>
      <width>1118</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

@@ -1,4 +1,4 @@
-#include "arduinoEmp.h"
+#include "arduino.h"
 
 Arduino::Arduino()
 {
@@ -17,10 +17,8 @@ QSerialPort *Arduino::getserial()
 {
    return serial;
 }
-
 int Arduino::connect_arduino()
-{
-    // recherche du port sur lequel la carte arduino identifée par  arduino_uno_vendor_id
+{   // recherche du port sur lequel la carte arduino identifée par  arduino_uno_vendor_id
     // est connectée
     foreach (const QSerialPortInfo &serial_port_info, QSerialPortInfo::availablePorts()){
            if(serial_port_info.hasVendorIdentifier() && serial_port_info.hasProductIdentifier()){
@@ -46,53 +44,38 @@ int Arduino::connect_arduino()
 }
 
 int Arduino::close_arduino()
+
 {
-    if(serial->isOpen())
-    {
-        serial->close();
+
+    if(serial->isOpen()){
+            serial->close();
             return 0;
-    }
-    return 1;
-}
-
-QByteArray Arduino::read_from_arduino()
-{
-   if(serial->isReadable())
-   {
-        data=serial->readAll(); //récupérer les données reçues
-        return data;
-   }
-}
-
-QString Arduino::select(QString val)
-{
-    QSqlQuery qry;
-    qry.prepare("SELECT nom_emp, prenom_emp FROM EMPLOYE WHERE id_card=?");
-    qry.addBindValue(val);
-
-    QString msg="";
-
-    if(qry.exec())
-    {
-        while (qry.next())
-        {
-            QString nom= qry.value(0).toString();
-            QString prenom= qry.value(1).toString();
-            msg=nom+" "+prenom;
         }
-    }
-    return msg;
+    return 1;
+
+
 }
 
-int Arduino::write_to_arduino( QByteArray d )
+
+ QByteArray Arduino::read_from_arduino()
+{
+    if(serial->isReadable()){
+         data=serial->readAll(); //récupérer les données reçues
+
+         return data;
+    }
+ }
+
+
+int Arduino::write_to_arduino( QByteArray d)
 
 {
-    if(serial->isWritable())
-    {
+
+    if(serial->isWritable()){
         serial->write(d);  // envoyer des donnés vers Arduino
-    }
-    else
-    {
+    }else{
         qDebug() << "Couldn't write to serial!";
     }
+
+
 }

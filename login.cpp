@@ -47,7 +47,7 @@ bool login::ajouterL()
 bool login::modifier()
 {
     QSqlQuery query;
-    query.prepare("UPDATE login set MOTDEPASSE=:MOTDEPASSE WHERE username=:username");
+    query.prepare("UPDATE LOGIN set MOTDEPASSE=:MOTDEPASSE WHERE username=:username");
     query.bindValue(":MOTDEPASSE", motdepasse);
     query.bindValue(":username", username);
     return query.exec();

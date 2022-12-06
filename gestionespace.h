@@ -9,7 +9,7 @@
 #include <QPushButton>
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
-#include "arduinoEmp.h"
+#include "arduino.h"
 #include <QWidget>
 
 namespace Ui {

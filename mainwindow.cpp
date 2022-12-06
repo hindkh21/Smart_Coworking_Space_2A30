@@ -4,6 +4,7 @@
 #include "gestionclient.h"
 #include "gestionespace.h"
 #include"gestion_abonnement.h"
+#include"gestionreservation.h"
 #include "login.h"
 #include <QMessageBox>
 MainWindow::MainWindow(QWidget *parent)
@@ -102,7 +103,7 @@ void MainWindow::on_pushButton_valid_2_clicked()
     username=ui->lineEdit_email_2->text();
     password=ui->pass_2->text();
     QSqlQuery qry;
-    if(qry.exec("select *from login where username='"+username+"'and motdepasse='"+password+"'"))
+    if(qry.exec("select *from LOGIN where username='"+username+"'and motdepasse='"+password+"'"))
     {
         int count=0;
         while(qry.next())
@@ -126,7 +127,7 @@ void MainWindow::on_AJOUTER_4_clicked()
     reponse=ui->reponse_2->text();
     question=ui->quest_2->currentText();
     QSqlQuery qry;
-    if(qry.exec("select *from login where username='"+username+"'and question='"+question+"'and reponse='"+reponse+"'"))
+    if(qry.exec("select *from LOGIN where username='"+username+"'and question='"+question+"'and reponse='"+reponse+"'"))
     {
         int nb=0;
         while(qry.next())
@@ -203,4 +204,11 @@ void MainWindow::on_checkBox_3_clicked()
         ui->new_2->setEchoMode(QLineEdit::Password);
         modes=1;
     }
+}
+
+void MainWindow::on_pb_reserv_clicked()
+{
+    gestionreservation *R;
+    R= new gestionreservation();
+    R->show();
 }

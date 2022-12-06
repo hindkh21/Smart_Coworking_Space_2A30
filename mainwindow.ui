@@ -28,7 +28,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QGroupBox" name="groupBox">
@@ -874,7 +874,7 @@ background-color: rgb(255, 255, 255);
      <x>0</x>
      <y>0</y>
      <width>1107</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
