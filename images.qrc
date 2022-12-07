@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/image">
+        <file>image/310432895_2325982227549440_2476852675195435336_n.png</file>
         <file>image/add_tache.png</file>
         <file>image/afficher.png</file>
         <file>image/ajouter.png</file>
@@ -19,4 +20,24 @@
         <file>image/valider.png</file>
         <file>image/view.png</file>
     </qresource>
+    <qresource prefix="/images_espace">
+        <file>Images_espace/arduino.png</file>
+        <file>Images_espace/Bureau.jpg</file>
+        <file>Images_espace/Coworking.jpg</file>
+        <file>Images_espace/descr.png</file>
+        <file>Images_espace/excel.png</file>
+        <file>Images_espace/importer.png</file>
+        <file>Images_espace/modifier.png</file>
+        <file>Images_espace/paiementfacture.jpg</file>
+        <file>Images_espace/pdf.png</file>
+        <file>Images_espace/SalleConf.jpg</file>
+        <file>Images_espace/SalleReu.png</file>
+        <file>Images_espace/suprimer.png</file>
+        <file>Images_espace/trier.png</file>
+        <file>Images_espace/valider.png</file>
+        <file>imageres/Untitled-1.png</file>
+        <file>imageres/reserved.png</file>
+        <file>imageres/workplace.png</file>
+    </qresource>
+    <qresource prefix="/hamza"/>
 </RCC>

@@ -120,7 +120,7 @@ void gestion_abonnement::on_supp_2_clicked()
 
 void gestion_abonnement::on_supp_4_clicked()
 {
-    QPdfWriter pdf("C:/Users/gamer/Desktop/Atelier_Connexion/Atelier_Connexion/Liste.pdf");
+    QPdfWriter pdf("C:/Users/chtar/Desktop/Smart_Coworking_Space_2A30-integration-reservation/Liste.pdf");
 
         QPainter painter(&pdf);
 
@@ -151,7 +151,7 @@ void gestion_abonnement::on_supp_4_clicked()
         int reponse = QMessageBox::question(this, "PDF généré", "Afficher le PDF ?", QMessageBox::Yes |  QMessageBox::No);
         if (reponse == QMessageBox::Yes)
         {
-            QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/gamer/Desktop/Atelier_Connexion/Atelier_Connexion/Liste.pdf"));
+            QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/chtar/Desktop/Smart_Coworking_Space_2A30-integration-reservation/Liste.pdf"));
             painter.end();
         }
         if (reponse == QMessageBox::No)

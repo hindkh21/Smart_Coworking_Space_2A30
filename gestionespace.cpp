@@ -2,6 +2,7 @@
 #include "ui_gestionespace.h"
 #include "espaces.h"
 #include "exportexcelobject.h"
+#include "statesp.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QDoubleValidator>
@@ -90,7 +91,7 @@ void gestionEspace::on_ajouter_pb_clicked()
     if(test)
     {
         ui->tableView_espace->setModel(ES.afficher());
-        m_a_j_stat();
+        //m_a_j_stat();
         QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("ajout effectué\n" "Click cancel to exit\n"),QMessageBox::Cancel);
 
     }
@@ -108,7 +109,7 @@ void gestionEspace::on_supr_pb_clicked()
     if(test)
     {
         ui->tableView_espace->setModel(ES.afficher());
-        m_a_j_stat();
+        //m_a_j_stat();
         QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Suppression avec succes\n" "Click cancel to exit\n"),QMessageBox::Cancel);
 
     }
@@ -171,7 +172,7 @@ void gestionEspace::on_modif_pb_clicked()
        if(test)
        {
            ui->tableView_espace->setModel(ES.afficher());
-           m_a_j_stat();
+           //m_a_j_stat();
            QMessageBox::information(nullptr,QObject::tr("OK"),QObject::tr("Modification avec succes\n" "Click cancel to exit\n"),QMessageBox::Cancel);
        }
            else
@@ -189,7 +190,7 @@ void gestionEspace::on_tri_pb_clicked()
 
 void gestionEspace::on_PDF_pb_clicked()
 {
-    QPdfWriter pdf("C:/Users/abdel/OneDrive/Documents/Gestion_Espaces/Liste.pdf");
+    QPdfWriter pdf("C:/Users/chtar/Desktop/Smart_Coworking_Space_2A30-integration-reservation/Liste.pdf");
 
                          QPainter painter(&pdf);
 
@@ -229,7 +230,7 @@ void gestionEspace::on_PDF_pb_clicked()
                          int answer = QMessageBox::question(this, "PDF généré avec succes", "Voulez vous afficher le PDF ?", QMessageBox::Yes |  QMessageBox::No);
                          if (answer == QMessageBox::Yes)
                          {
-                             QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/abdel/OneDrive/Documents/Gestion_Espaces/Liste.pdf"));
+                             QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/chtar/Desktop/Smart_Coworking_Space_2A30-integration-reservation/Liste.pdf"));
 
                              painter.end();
                          }
@@ -283,7 +284,7 @@ return filename;
 void gestionEspace::on_Descr_pb_clicked()
 {
 
-    QPdfWriter pdf("C:/Users/abdel/OneDrive/Documents/Gestion_Espaces/Description.pdf");
+    QPdfWriter pdf("C:/Users/chtar/Desktop/Smart_Coworking_Space_2A30-integration-reservation/Description.pdf");
 
                          QPainter painter(&pdf);
 
@@ -360,7 +361,7 @@ void gestionEspace::on_Descr_pb_clicked()
                          int answer = QMessageBox::question(this, "PDF généré avec succes", "Voulez vous afficher le PDF ?", QMessageBox::Yes |  QMessageBox::No);
                          if (answer == QMessageBox::Yes)
                          {
-                             QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/abdel/OneDrive/Documents/Gestion_Espaces/Description.pdf"));
+                             QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/chtar/Desktop/Smart_Coworking_Space_2A30-integration-reservation/Description.pdf"));
 
                              painter.end();
                          }
@@ -410,7 +411,7 @@ void gestionEspace::on_Facture_pb_clicked()
     QString p;
     float f=calculer();
     QString b = QString::number(f);
-    QPdfWriter pdf("C:/Users/abdel/OneDrive/Documents/Gestion_Espaces/Facture.pdf");
+    QPdfWriter pdf("C:/Users/chtar/Desktop/Smart_Coworking_Space_2A30-integration-reservation/Facture.pdf");
 
                          QPainter painter(&pdf);
 
@@ -535,7 +536,7 @@ void gestionEspace::on_Facture_pb_clicked()
                          int answer = QMessageBox::question(this, "Facture générée avec succes", "Voulez vous afficher la facture? ?", QMessageBox::Yes |  QMessageBox::No);
                          if (answer == QMessageBox::Yes)
                          {
-                             QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/abdel/OneDrive/Documents/Gestion_Espaces/Facture.pdf"));
+                             QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/chtar/Desktop/Smart_Coworking_Space_2A30-integration-reservation/Facture.pdf"));
 
                              painter.end();
                          }
@@ -604,10 +605,102 @@ void gestionEspace::update_label()
 void gestionEspace::m_a_j_stat()
 {
     // set dark background gradient:
+        QLinearGradient gradient(0, 0, 0, 400);
+        gradient.setColorAt(0, QColor(214, 178, 255));
+        gradient.setColorAt(0.38, QColor(214, 178, 255));
+        gradient.setColorAt(1, QColor(214, 178, 255));
+        ui->customplot->setBackground(QBrush(gradient));
+
+
+        // create empty bar chart objects:
+        QCPBars *nombre = new QCPBars(ui->customplot->xAxis, ui->customplot->yAxis);
+        nombre->setAntialiased(false);
+        nombre->setStackingGap(1);
+
+        // set names and colors:
+        nombre->setName("Nombre d'espaces");
+        nombre->setPen(QPen(QColor(111, 9, 176).lighter(170)));
+        nombre->setBrush(QColor(111, 9, 176));
+
+        // prepare x axis with country labels:
+        QVector<double> ticks;
+        QVector<QString> labels;
+        ticks << 1 << 2 << 3 << 4;
+        labels << "Coworking space" << "Bureau privatif" << "Salle de reunion" << "Salle de conference";
+        QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+        textTicker->addTicks(ticks, labels);
+        ui->customplot->xAxis->setTicker(textTicker);
+        ui->customplot->xAxis->setTickLabelRotation(0);
+        ui->customplot->xAxis->setSubTicks(false);
+        ui->customplot->xAxis->setTickLength(0, 4);
+        ui->customplot->xAxis->setRange(0,6);
+        ui->customplot->xAxis->setBasePen(QPen(Qt::white));
+        ui->customplot->xAxis->setTickPen(QPen(Qt::white));
+        ui->customplot->xAxis->grid()->setVisible(true);
+        ui->customplot->xAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+        ui->customplot->xAxis->setTickLabelColor(Qt::white);
+        ui->customplot->xAxis->setLabelColor(Qt::white);
+
+        // prepare y axis:
+        ui->customplot->yAxis->setRange(0, 12.1);
+        ui->customplot->yAxis->setPadding(5); // a bit more space to the left border
+        ui->customplot->yAxis->setLabel("Le nombre d'espaces existants\n pour chaque catégorie");
+        ui->customplot->yAxis->setBasePen(QPen(Qt::white));
+        ui->customplot->yAxis->setTickPen(QPen(Qt::white));
+        ui->customplot->yAxis->setSubTickPen(QPen(Qt::white));
+        ui->customplot->yAxis->grid()->setSubGridVisible(true);
+        ui->customplot->yAxis->setTickLabelColor(Qt::white);
+        ui->customplot->yAxis->setLabelColor(Qt::white);
+        ui->customplot->yAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::SolidLine));
+        ui->customplot->yAxis->grid()->setSubGridPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+
+        // Add data:
+        QVector<double> data;
+
+        int cs=0;
+        int sr=0;
+        int bp=0;
+        int sc=0;
+        const int ligne = ui->tableView_espace->model()->rowCount();
+         for (int row = 0; row < ligne; row++)
+         {
+             if (!ui->tableView_espace->isColumnHidden(1)) {
+
+             if(ui->tableView_espace->model()->data(ui->tableView_espace->model()->index(row, 1))=="Coworking Space")
+                   cs++;
+             else if (ui->tableView_espace->model()->data(ui->tableView_espace->model()->index(row, 1))=="Bureau Privatif")
+                 bp++;
+             else if (ui->tableView_espace->model()->data(ui->tableView_espace->model()->index(row, 1))=="Salle de Reunion")
+                 sr++;
+             else if(ui->tableView_espace->model()->data(ui->tableView_espace->model()->index(row, 1))=="Salle de Conference")
+                 sc++;
+         }
+         }
+
+
+        data  << cs << bp << sr << sc ;
+
+        nombre->setData(ticks, data);
+
+        // setup legend:
+        ui->customplot->legend->setVisible(true);
+        ui->customplot->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignTop|Qt::AlignHCenter);
+        ui->customplot->legend->setBrush(QColor(255, 255, 255, 100));
+        ui->customplot->legend->setBorderPen(Qt::NoPen);
+        QFont legendFont = font();
+        legendFont.setPointSize(10);
+        ui->customplot->legend->setFont(legendFont);
+        ui->customplot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+}
+
+
+
+void gestionEspace::on_pushButton_clicked()
+{
     QLinearGradient gradient(0, 0, 0, 400);
-    gradient.setColorAt(0, QColor(90, 90, 90));
-    gradient.setColorAt(0.38, QColor(105, 105, 105));
-    gradient.setColorAt(1, QColor(70, 70, 70));
+    gradient.setColorAt(0, QColor(214, 178, 255));
+    gradient.setColorAt(0.38, QColor(214, 178, 255));
+    gradient.setColorAt(1, QColor(214, 178, 255));
     ui->customplot->setBackground(QBrush(gradient));
 
 
@@ -693,3 +786,10 @@ void gestionEspace::m_a_j_stat()
 }
 
 
+void gestionEspace::on_Excel_pb_2_clicked()
+{
+    ess = new statEsp();
+    ess->setWindowTitle("Nombre d espaces en fonction de la categorie");
+    ess->choix_bar();
+    ess->show();
+}

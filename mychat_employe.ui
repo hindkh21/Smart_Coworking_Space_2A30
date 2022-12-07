@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(243, 217, 255);</string>
+  </property>
   <widget class="QListView" name="chatView">
    <property name="enabled">
     <bool>false</bool>
@@ -74,7 +77,7 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="image.qrc">
+    <iconset resource="images.qrc">
      <normaloff>:/image/image/chatClient.png</normaloff>:/image/image/chatClient.png</iconset>
    </property>
    <property name="iconSize">
@@ -99,7 +102,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="image.qrc"/>
+  <include location="images.qrc"/>
  </resources>
  <connections/>
 </ui>

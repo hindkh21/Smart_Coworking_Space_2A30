@@ -28,7 +28,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QGroupBox" name="groupBox">
@@ -293,16 +293,20 @@ font: bold 60px;</string>
  height: 20px;
 }
 QCheckBox::indicator:checked{
- image:url(&quot;C:/Users/gamer/Downloads/vue.png&quot;);
+ image:url(&quot;C:/Users/chtar/Downloads/oui.png&quot;);
 }
 QCheckBox::indicator:unchecked{
- image:url(&quot;C:/Users/gamer/Downloads/cacher.png&quot;);
+ image:url(&quot;C:/Users/chtar/Downloads/non.png&quot;);
 }
 background-color: rgb(255, 255, 255);
 </string>
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../png-clipart-computer-icons-eye-hiding-people-logo-thumbnail.png</normaloff>../png-clipart-computer-icons-eye-hiding-people-logo-thumbnail.png</iconset>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_email_2">
@@ -839,10 +843,10 @@ font: 13pt &quot;MS Shell Dlg 2&quot;;</string>
  height: 20px;
 }
 QCheckBox::indicator:checked{
- image:url(&quot;C:/Users/gamer/Downloads/vue.png&quot;);
+ image:url(&quot;C:/Users/chtar/Downloads/oui.png&quot;);
 }
 QCheckBox::indicator:unchecked{
- image:url(&quot;C:/Users/gamer/Downloads/cacher.png&quot;);
+ image:url(&quot;C:/Users/chtar/Downloads/non.png&quot;);
 }
 background-color: rgb(255, 255, 255);
 </string>

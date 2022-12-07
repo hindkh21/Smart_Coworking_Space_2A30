@@ -1,10 +1,5 @@
-QT       += core gui sql
-QT       += network
-QT       += printsupport
-QT       += charts
-QT       += multimedia
-QT       += serialport
-QT       +=sql
+QT       +=  core gui sql network multimedia multimediawidgets charts printsupport widgets axcontainer serialport
+TARGET = QT_Project_On_Movie_Ticket_Booking
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,10 +18,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     abonnement.cpp \
-    arduinoEmp.cpp \
+    arduino.cpp \
+    book.cpp \
+    cancel.cpp \
     chatemp.cpp \
     client.cpp \
     connection.cpp \
+    dialog_map.cpp \
+    dialog_stats.cpp \
     dialog_stats_abonnement.cpp \
     employe.cpp \
     espaces.cpp \
@@ -35,21 +34,29 @@ SOURCES += \
     gestionclient.cpp \
     gestionemploye.cpp \
     gestionespace.cpp \
+    gestionreservation.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
     mychat_employe.cpp \
+    mydb.cpp \
     qcustomplot.cpp \
+    reservation.cpp \
     smtp.cpp \
     statemp.cpp \
+    statesp.cpp \
     todolist.cpp
 
 HEADERS += \
     abonnement.h \
-    arduinoEmp.h \
+    arduino.h \
+    book.h \
+    cancel.h \
     chatemp.h \
     client.h \
     connection.h \
+    dialog_map.h \
+    dialog_stats.h \
     dialog_stats_abonnement.h \
     employe.h \
     espaces.h \
@@ -58,23 +65,34 @@ HEADERS += \
     gestionclient.h \
     gestionemploye.h \
     gestionespace.h \
+    gestionreservation.h \
     login.h \
     mainwindow.h \
     mychat_employe.h \
+    mydb.h \
     qcustomplot.h \
+    reservation.h \
     smtp.h \
     statemp.h \
-    todolist.h
+    statesp.h \
+    todolist.h \
+    webaxwidget.h
 
 FORMS += \
+    book.ui \
+    cancel.ui \
+    dialog_map.ui \
+    dialog_stats.ui \
     dialog_stats_abonnement.ui \
     gestion_abonnement.ui \
     gestionclient.ui \
     gestionemploye.ui \
     gestionespace.ui \
+    gestionreservation.ui \
     mainwindow.ui \
     mychat_employe.ui \
-    statemp.ui
+    statemp.ui \
+    statesp.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -83,3 +101,21 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     images.qrc
+
+DISTFILES += \
+    Images_espace/Bureau.jpg \
+    Images_espace/Coworking.jpg \
+    Images_espace/SalleConf.jpg \
+    Images_espace/SalleReu.png \
+    Images_espace/arduino.png \
+    Images_espace/descr.png \
+    Images_espace/excel.png \
+    Images_espace/importer.png \
+    Images_espace/modifier.png \
+    Images_espace/paiementfacture.jpg \
+    Images_espace/pdf.png \
+    Images_espace/suprimer.png \
+    Images_espace/trier.png \
+    Images_espace/valider.png \
+    imageres/310432895_2325982227549440_2476852675195435336_n.png \
+    imageres/Untitled-1.png

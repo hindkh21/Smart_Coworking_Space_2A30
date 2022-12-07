@@ -103,9 +103,7 @@ void GestionEmploye::update_label()
         QByteArray m= c.toUtf8();
         A.write_to_arduino(m);
       }
-
 }
-
 
 
 

@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(243, 217, 255);</string>
+  </property>
   <widget class="QLineEdit" name="le_Fait">
    <property name="enabled">
     <bool>false</bool>

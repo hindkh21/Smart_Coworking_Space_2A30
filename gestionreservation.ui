@@ -1,0 +1,2233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>gestionreservation</class>
+ <widget class="QWidget" name="gestionreservation">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1478</width>
+    <height>573</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label_7">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>110</y>
+     <width>581</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/new/prefix1/images/310432895_2325982227549440_2476852675195435336_n.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>50</y>
+     <width>171</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE7">
+   <property name="geometry">
+    <rect>
+     <x>1090</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-7</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>46</x>
+     <y>10</y>
+     <width>681</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 15px;
+background-color: rgb(255, 170, 255);</string>
+   </property>
+   <property name="text">
+    <string>                   ComfyBox's heaven</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC7">
+   <property name="geometry">
+    <rect>
+     <x>1090</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-7</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="line_Perso">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>180</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC3">
+   <property name="geometry">
+    <rect>
+     <x>1290</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB5">
+   <property name="geometry">
+    <rect>
+     <x>1090</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-5</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD8">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-8</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>180</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC1">
+   <property name="geometry">
+    <rect>
+     <x>1390</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-1</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA3">
+   <property name="geometry">
+    <rect>
+     <x>1190</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC13">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-13</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE2">
+   <property name="geometry">
+    <rect>
+     <x>1340</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD2">
+   <property name="geometry">
+    <rect>
+     <x>1340</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD6">
+   <property name="geometry">
+    <rect>
+     <x>1140</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-6</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD9">
+   <property name="geometry">
+    <rect>
+     <x>990</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-9</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>180</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>PLACES</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>1300</x>
+     <y>0</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>_PDMS_Sukkur</family>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Ⓒ Comfybox , 2022</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="rB_CIN">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>480</y>
+     <width>51</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>CIN</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB10">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-10</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>86</x>
+     <y>140</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Numtel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA6">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-6</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD11">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-11</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnBook">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>40</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Book</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_ajouter">
+   <property name="geometry">
+    <rect>
+     <x>344</x>
+     <y>90</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Ajouter</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC8">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-8</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB3">
+   <property name="geometry">
+    <rect>
+     <x>1190</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB7">
+   <property name="geometry">
+    <rect>
+     <x>990</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-7</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Numtel">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>140</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA4">
+   <property name="geometry">
+    <rect>
+     <x>1140</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-4</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>80</y>
+     <width>47</width>
+     <height>14</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nom</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>86</x>
+     <y>110</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Prenom</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE11">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-11</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE4">
+   <property name="geometry">
+    <rect>
+     <x>1240</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-4</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD5">
+   <property name="geometry">
+    <rect>
+     <x>1190</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-5</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA2">
+   <property name="geometry">
+    <rect>
+     <x>1240</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB8">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-8</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD7">
+   <property name="geometry">
+    <rect>
+     <x>1090</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-7</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD1">
+   <property name="geometry">
+    <rect>
+     <x>1390</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-1</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Info">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>160</y>
+     <width>191</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD3">
+   <property name="geometry">
+    <rect>
+     <x>1290</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC2">
+   <property name="geometry">
+    <rect>
+     <x>1340</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA1">
+   <property name="geometry">
+    <rect>
+     <x>1300</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-1</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnReset">
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>40</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>Reset</string>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>210</y>
+     <width>621</width>
+     <height>201</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC14">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-14</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_TrierParNom">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>420</y>
+     <width>141</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Trier par NumTel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC4">
+   <property name="geometry">
+    <rect>
+     <x>1240</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-4</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD13">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-13</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD12">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-12</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Nom">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>80</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pB_Map">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>430</y>
+     <width>161</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Map</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE9">
+   <property name="geometry">
+    <rect>
+     <x>990</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-9</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE12">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-12</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE6">
+   <property name="geometry">
+    <rect>
+     <x>1140</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-6</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_Supprimer">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>90</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Supprimer</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE14">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-14</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE8">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-8</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>180</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Personnes</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_cin">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>50</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>50</y>
+     <width>47</width>
+     <height>14</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>CIN</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pB_ExPDF_2">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>180</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Statistiques</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnCancel">
+   <property name="geometry">
+    <rect>
+     <x>1160</x>
+     <y>40</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA7">
+   <property name="geometry">
+    <rect>
+     <x>990</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-7</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD10">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-10</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB9">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-9</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC10">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-10</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD14">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-14</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB12">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-12</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB6">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-6</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC5">
+   <property name="geometry">
+    <rect>
+     <x>1190</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-5</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA8">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-8</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_CINRecherche">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>450</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 170, 255);</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE10">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-10</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA11">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-11</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC12">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-12</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA9">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-9</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pB_ExPDF">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>420</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Export PDF</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pB_Recherche">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>420</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Rechercher</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Prenom">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>110</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="rB_NumTel">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>480</y>
+     <width>71</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Num Tel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE3">
+   <property name="geometry">
+    <rect>
+     <x>1290</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_Quitter">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>510</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>QUITTER</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>60</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 15px;
+background-color: rgb(255, 170, 255);</string>
+   </property>
+   <property name="text">
+    <string>  Reserver une place!</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC11">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-11</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_Modifier">
+   <property name="geometry">
+    <rect>
+     <x>404</x>
+     <y>120</y>
+     <width>81</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Modifier</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB11">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-11</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE1">
+   <property name="geometry">
+    <rect>
+     <x>1390</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-1</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pB_TrierParCIN">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>420</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+     <pointsize>6</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-radius: 15px;
+background-color: rgb(255, 170, 255);
+
+}
+QPushButton:hover {
+	
+	background-color: rgb(255, 106, 231);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed {
+background-color: rgb(100, 170, 255);
+}
+
+</string>
+   </property>
+   <property name="text">
+    <string>Trier par CIN</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC9">
+   <property name="geometry">
+    <rect>
+     <x>990</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-9</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB2">
+   <property name="geometry">
+    <rect>
+     <x>1240</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE13">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-13</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA5">
+   <property name="geometry">
+    <rect>
+     <x>1090</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-5</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA12">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-12</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblE5">
+   <property name="geometry">
+    <rect>
+     <x>1190</x>
+     <y>360</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>E-5</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Place">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>180</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB1">
+   <property name="geometry">
+    <rect>
+     <x>1290</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-1</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblD4">
+   <property name="geometry">
+    <rect>
+     <x>1240</x>
+     <y>300</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>D-4</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblC6">
+   <property name="geometry">
+    <rect>
+     <x>1140</x>
+     <y>240</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>C-6</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>180</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>RFID</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblA10">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>120</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>A-10</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>440</y>
+     <width>361</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>African</family>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 15px;
+background-color: rgb(255, 170, 255);</string>
+   </property>
+   <property name="text">
+    <string>   Localiser notre espace Co-Working!</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblB4">
+   <property name="geometry">
+    <rect>
+     <x>1140</x>
+     <y>180</y>
+     <width>35</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="text">
+    <string>B-4</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>6</x>
+     <y>3</y>
+     <width>1581</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images_espace/imageres/Untitled-1.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_6</zorder>
+  <zorder>label_7</zorder>
+  <zorder>comboBox</zorder>
+  <zorder>lblE7</zorder>
+  <zorder>label_8</zorder>
+  <zorder>lblC7</zorder>
+  <zorder>line_Perso</zorder>
+  <zorder>lblC3</zorder>
+  <zorder>lblB5</zorder>
+  <zorder>lblD8</zorder>
+  <zorder>label_14</zorder>
+  <zorder>lblC1</zorder>
+  <zorder>lblA3</zorder>
+  <zorder>lblC13</zorder>
+  <zorder>lblE2</zorder>
+  <zorder>lblD2</zorder>
+  <zorder>lblD6</zorder>
+  <zorder>lblD9</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_10</zorder>
+  <zorder>rB_CIN</zorder>
+  <zorder>lblB10</zorder>
+  <zorder>label_3</zorder>
+  <zorder>lblA6</zorder>
+  <zorder>lblD11</zorder>
+  <zorder>btnBook</zorder>
+  <zorder>pb_ajouter</zorder>
+  <zorder>lblC8</zorder>
+  <zorder>lblB3</zorder>
+  <zorder>lblB7</zorder>
+  <zorder>lineEdit_Numtel</zorder>
+  <zorder>lblA4</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>lblE11</zorder>
+  <zorder>lblE4</zorder>
+  <zorder>lblD5</zorder>
+  <zorder>lblA2</zorder>
+  <zorder>lblB8</zorder>
+  <zorder>lblD7</zorder>
+  <zorder>lblD1</zorder>
+  <zorder>label_Info</zorder>
+  <zorder>lblD3</zorder>
+  <zorder>lblC2</zorder>
+  <zorder>lblA1</zorder>
+  <zorder>btnReset</zorder>
+  <zorder>tableView</zorder>
+  <zorder>lblC14</zorder>
+  <zorder>pb_TrierParNom</zorder>
+  <zorder>lblC4</zorder>
+  <zorder>lblD13</zorder>
+  <zorder>lblD12</zorder>
+  <zorder>lineEdit_Nom</zorder>
+  <zorder>pB_Map</zorder>
+  <zorder>lblE9</zorder>
+  <zorder>lblE12</zorder>
+  <zorder>lblE6</zorder>
+  <zorder>pb_Supprimer</zorder>
+  <zorder>lblE14</zorder>
+  <zorder>lblE8</zorder>
+  <zorder>label_11</zorder>
+  <zorder>lineEdit_cin</zorder>
+  <zorder>label_4</zorder>
+  <zorder>pB_ExPDF_2</zorder>
+  <zorder>btnCancel</zorder>
+  <zorder>lblA7</zorder>
+  <zorder>lblD10</zorder>
+  <zorder>lblB9</zorder>
+  <zorder>lblC10</zorder>
+  <zorder>lblD14</zorder>
+  <zorder>lblB12</zorder>
+  <zorder>lblB6</zorder>
+  <zorder>lblC5</zorder>
+  <zorder>lblA8</zorder>
+  <zorder>lineEdit_CINRecherche</zorder>
+  <zorder>lblE10</zorder>
+  <zorder>lblA11</zorder>
+  <zorder>lblC12</zorder>
+  <zorder>lblA9</zorder>
+  <zorder>pB_ExPDF</zorder>
+  <zorder>pB_Recherche</zorder>
+  <zorder>lineEdit_Prenom</zorder>
+  <zorder>rB_NumTel</zorder>
+  <zorder>lblE3</zorder>
+  <zorder>pb_Quitter</zorder>
+  <zorder>label_9</zorder>
+  <zorder>lblC11</zorder>
+  <zorder>pb_Modifier</zorder>
+  <zorder>lblB11</zorder>
+  <zorder>lblE1</zorder>
+  <zorder>pB_TrierParCIN</zorder>
+  <zorder>lblC9</zorder>
+  <zorder>lblB2</zorder>
+  <zorder>lblE13</zorder>
+  <zorder>lblA5</zorder>
+  <zorder>lblA12</zorder>
+  <zorder>lblE5</zorder>
+  <zorder>lineEdit_Place</zorder>
+  <zorder>lblB1</zorder>
+  <zorder>lblD4</zorder>
+  <zorder>lblC6</zorder>
+  <zorder>label_13</zorder>
+  <zorder>lblA10</zorder>
+  <zorder>label_12</zorder>
+  <zorder>lblB4</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,6 +1,7 @@
 #ifndef GESTIONESPACE_H
 #define GESTIONESPACE_H
 #include "espaces.h"
+#include "statesp.h"
 #include <QRegExpValidator>
 #include <QSql>
 #include <QSqlDatabase>
@@ -9,7 +10,7 @@
 #include <QPushButton>
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
-#include "arduinoEmp.h"
+#include "arduino.h"
 #include <QWidget>
 
 namespace Ui {
@@ -60,9 +61,14 @@ private slots:
     void m_a_j_stat();
 
 
+    void on_pushButton_clicked();
+
+    void on_Excel_pb_2_clicked();
+
 private:
     Ui::gestionEspace *ui;
     Espaces ES;
+    statEsp *ess;
     QByteArray data; //variable contenant les donnees recues
     Arduino A; //objet temporaire
 };

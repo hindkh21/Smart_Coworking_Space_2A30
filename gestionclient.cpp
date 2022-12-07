@@ -403,8 +403,8 @@ void gestionClient::on_pushButton_11_clicked()
 
 
 
-void gestionClient::on_lineEdit_4_textChanged(const QString &arg1)
-{
-    ui->tab_client_4->setModel(C.recherche(ui->lineEdit_4->text(),ui->lineEdit_4->text(),ui->lineEdit_4->text()));
-}
+// void gestionClient::on_lineEdit_4_textChanged(const QString &arg1)
+// {
+    // ui->tab_client_4->setModel(C.recherche(ui->lineEdit_4->text(),ui->lineEdit_4->text(),ui->lineEdit_4->text()));
+// }
 

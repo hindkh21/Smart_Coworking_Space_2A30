@@ -93,7 +93,7 @@ border:1px solid;
       <property name="styleSheet">
        <string notr="true">QGroupBox#groupBox_10{
 	
-	background-color: rgb(255, 170, 255);
+background-color: rgb(243, 217, 255);
 	border : 1px solid ;
 	border-color: rgb(254, 219, 255);
 	border-radius:20px;
@@ -928,6 +928,9 @@ background-color:transparent;
         <weight>50</weight>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(243, 217, 255);</string>
       </property>
       <property name="title">
        <string>Mail</string>

@@ -1,10 +1,9 @@
 #ifndef GESTIONCLIENT_H
 #define GESTIONCLIENT_H
-
 #include <QMainWindow>
 #include "client.h"
 #include <QObject>
-#include "arduinoEmp.h"
+#include "arduino.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class gestionClient;
